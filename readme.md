@@ -1,8 +1,8 @@
-##HRM & PayRoll manager
+## HRM & PayRoll manager
 
 
 
-###Set-up instructions
+### Set-up instructions
 
 - In your terminal, cd to the application directory.
 - Once there execute the code `composer install` and wait for it to finish.
@@ -13,5 +13,5 @@ and repast it, naming it `.env`
 `php artisan serve` in your terminal.
 - Copy the generated link into your browser to launch the page.
 
-###Project description
+### Project description
 
