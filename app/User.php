@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','access_type'
     ];
 
     /**
@@ -76,9 +76,8 @@ class User extends Authenticatable
         return false;
     }
 
-    public function isManager()
-    {
-        $userId = Auth::user()->id;
+    public function isManager(){
+                $userId = Auth::user()->id;
         $userRole = UserRole::where('user_id', $userId)->first();
         if($userRole->role_id == 16)
         {
@@ -87,8 +86,59 @@ class User extends Authenticatable
         return false;
     }
 
-    public function project()
-    {
-        return $this->hasMany(Project::class);
-    }
+
+//    public function isAdmin()
+//    {
+//        $access = Auth::user()->access_type;
+//        if($access == 'admin'){
+//            return true;
+//        }
+//        return false;
+//
+////        $userId = Auth::user()->id;
+////        $userRole = UserRole::where('user_id', $userId)->first();
+////        if($userRole->role_id == 16)
+////        {
+////            return true;
+////        }
+////        return false;
+//    }
+//
+////    public function isManager()
+////    {
+////        $access = Auth::user()->access_type;
+////        if($access == 'manager'){
+////            return true;
+////        }
+////        return false;
+////
+//////        $userId = Auth::user()->id;
+//////        $userRole = UserRole::where('user_id', $userId)->first();
+//////        if($userRole->role_id == 16)
+//////        {
+//////            return true;
+//////        }
+//////        return false;
+////    }
+//
+//    public function isEmployee(){
+//        $access = Auth::user()->access_type;
+//        if($access == 'admin' || $access == 'admin' || $access == 'admin'){
+//            return true;
+//        }
+//        return false;
+//
+////        $userId = Auth::user()->id;
+////        $userRole = UserRole::where('user_id', $userId)->first();
+////        if($userRole->role_id == 16)
+////        {
+////            return true;
+////        }
+////        return false;
+//    }
+//
+//    public function project()
+//    {
+//        return $this->hasMany(Project::class);
+//    }
 }

@@ -32,7 +32,7 @@ class CreateEmployeesTable extends Migration
             $table->tinyInteger('offer_acceptance');
             $table->string('probation_period');
             $table->date('date_of_confirmation');
-            $table->string('department');
+            $table->unsignedInteger('department');
             $table->string('salary');
             $table->string('account_number');
             $table->string('bank_name');
@@ -46,6 +46,7 @@ class CreateEmployeesTable extends Migration
             $table->tinyInteger('full_final');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('department')->references('id')->on('departments')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
