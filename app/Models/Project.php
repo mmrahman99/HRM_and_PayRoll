@@ -12,4 +12,7 @@
         {
             return $this->belongsTo(Client::class);
         }
+
+
+        
     }

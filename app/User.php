@@ -137,8 +137,8 @@ class User extends Authenticatable
 ////        return false;
 //    }
 //
-//    public function project()
-//    {
-//        return $this->hasMany(Project::class);
-//    }
+    public function project()
+    {
+        return $this->hasMany(Project::class);
+    }
 }
