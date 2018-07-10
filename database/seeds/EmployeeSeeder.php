@@ -30,7 +30,7 @@ class EmployeeSeeder extends Seeder
             'offer_acceptance' => '',
             'probation_period' => '',
             'date_of_confirmation' => '',
-            'department' => '',
+            'department' => 1,
             'salary' => '',
             'account_number' => '',
             'bank_name' => '',

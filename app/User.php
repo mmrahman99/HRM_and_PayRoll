@@ -34,12 +34,18 @@ class User extends Authenticatable
      */
     public function employee()
     {
-        return $this->hasOne(Employee::class, 'user_id', 'id');
+        return $this->hasOne(
+            Employee::class,
+            'user_id',
+            'id');
     }
 
     public function role()
     {
-        return $this->hasOne('App\Models\UserRole', 'user_id', 'id');
+        return $this->hasOne(
+            'App\Models\UserRole',
+            'user_id',
+            'id');
     }
 
     public function isHR()
@@ -141,4 +147,42 @@ class User extends Authenticatable
     {
         return $this->hasMany(Project::class);
     }
+
+    public function schemes(){
+        return $this->belongsToMany(
+            tax_schemes::class,
+            employee_tax_schemes::class ,
+            'employee_id',
+            'scheme_id',
+            'id',
+            'id');
+    }
+
+    public function payslips(){
+        return $this->hasMany(
+            payslips::class,
+            'employee_id',
+            'id');
+    }
+
+    public function expenditures(){
+        return $this->hasMany(
+            Expense::class,
+            'user_id',
+            'id');
+    }
+
+    public function assignedTasks()
+    {
+        return $this->belongsToMany(
+            tasks::class,
+            'task_assign_to',
+            'assigned_to_id',
+            'task_id',
+            'id',
+            'id'
+        );
+    }
+
+
 }

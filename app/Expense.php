@@ -8,6 +8,12 @@ class Expense extends Model
 {
     public function employee()
     {
-        return $this->hasOne(User::class, 'id', 'user_id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    public function task(){
+        return $this->belongsTo(tasks::class,'task_id', 'id');
+    }
+
+
 }
