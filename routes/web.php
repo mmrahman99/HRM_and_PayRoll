@@ -351,6 +351,14 @@ Route::group(['middleware' => ['auth']], function ()
     Route::get('payslip', ['as' => 'payslip', 'uses' => 'payrollController@showPayslip']);
 
     Route::get('show-payslips', ['as' => 'show-payslips', 'uses' => 'payrollController@showAllPayslips']);
+
+    Route::get('show-insurance', ['as' => 'show-insurance', 'uses' => 'payrollController@showInsurance']);
+
+
+    Route::get('add-insurance', ['as' => 'add-insurance', 'uses' => 'payrollController@showAddInsurance']);
+    Route::post('add-insurance', ['as' => 'add-insurance', 'uses' => 'payrollController@AddInsurance']);
+
+
     //Route::get('assign-project', 'ProjectController@assignProject')->name('assign-project');
 
 });

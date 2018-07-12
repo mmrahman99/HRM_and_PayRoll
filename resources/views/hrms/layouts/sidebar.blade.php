@@ -395,6 +395,40 @@
             </ul>
         </li>
 
+        <li>
+            <a class="accordion-toggle" href="/dashboard">
+                <span class="fa fa-line-chart"></span>
+                <span class="sidebar-title">Financial</span>
+                <span class="caret"></span>
+            </a>
+            <ul class="nav sub-nav">
+                <li>
+                    <a href="/calculator">
+                        <span class="glyphicon glyphicons-calculator"></span> Calculator </a>
+                </li>
+                <li>
+                    <a href="/company-financial">
+                        <span class="glyphicon glyphicons-bank"></span> Company Finances </a>
+                </li>
+                <li>
+                    <a href="/edit-financial-data">
+                        <span class="glyphicon glyphicons-bank"></span> Edit Financial Data </a>
+                </li>
+                <li>
+                    <a href="/financial-manager">
+                        <span class="glyphicon glyphicons-bank"></span> Financial Manager </a>
+                </li>
+                <li>
+                    <a href="/payroll-manager">
+                        <span class="glyphicon glyphicons-bank"></span> Payroll Manager </a>
+                </li>
+                <li>
+                    <a href="/show-payslips">
+                        <span class="glyphicon glyphicons-bank"></span> View Payslips </a>
+                </li>
+            </ul>
+        </li>
+
     @endif
 
 
