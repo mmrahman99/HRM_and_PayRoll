@@ -433,7 +433,7 @@ $('#update-bank-account-details').click(function () {
     var pf_account_number = $('#pf_account_number').val();
     var token = $('#token').val();
 
-    console.log(account_number)
+    console.log(account_number);
 
     $.post('/update-account-details', {
         'employee_id': employee_id,

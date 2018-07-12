@@ -309,6 +309,9 @@
                     <!-- -------------- Spec Form -------------- -->
                     <div class="allcp-form">
 
+                        {{--
+                        TODO: Rearrange layout.
+                        --}}
                         <form method="post" action="/" id="custom-form-wizard">
                             <div class="wizard steps-bg steps-left">
 
@@ -365,6 +368,52 @@
                                         </label>
                                     </div>
 
+                                    <div class="section">
+                                        <label for="input002"><h6 class="mb20 mt40">Email</h6></label>
+                                        <label for="input002" class="field prepend-icon">
+                                            @if(\Route::getFacadeRoot()->current()->uri() == 'edit-emp/{id}')
+                                                <input type="email" name="email" id="email" class="gui-input"
+                                                       value="@if($emps && $emps->email){{$emps->email}}@endif"
+                                                       required>
+                                                <label for="input002" class="field-icon">
+                                                    <i class="fa fa-user"></i>
+                                                </label>
+                                            @else
+                                                <input type="email" name="email" id="email" class="gui-input"
+                                                       placeholder="Email..." required>
+                                                <label for="input002" class="field-icon">
+                                                    <i class="fa fa-user"></i>
+                                                </label>
+                                            @endif
+                                        </label>
+                                    </div>
+
+                                    {{--
+                                    TODO: Do edit-emp functionality
+                                    --}}
+                                    <div class="section">
+                                        <label for="input002"><h6 class="mb20 mt40">Access Type</h6></label>
+                                        {{--@if(\Route::getFacadeRoot()->current()->uri() == 'edit-emp/{id}')--}}
+                                        {{--<select name="access_type" id="access_type" class="gui-input"--}}
+                                        {{--value="@if($emps && $emps->access_type){{$emps->access_type}}@endif" required>--}}
+                                        {{--<option value="employee">employee</option>--}}
+                                        {{--<option value="manager">manager</option>--}}
+                                        {{--<option value="admin">admin</option>--}}
+                                        {{--</select>--}}
+                                        {{--<label for="input002" class="field-icon">--}}
+                                        {{--<i class="fa fa-barcode"></i>--}}
+                                        {{--</label>--}}
+                                        {{--@else--}}
+                                        <select class="select2-single form-control" name="access_type" id="access_type"
+                                                required>
+                                            <option>employee</option>
+                                            <option>manager</option>
+                                            <option>admin</option>
+                                        </select>
+
+                                        {{--@endif--}}
+
+                                    </div>
 
                                     <div class="section">
                                         <label for="input002"><h6 class="mb20 mt40">Employee Name </h6></label>
@@ -905,7 +954,8 @@
 
                                 </section>
 
-
+                                <!-- -------------- step 4 -------------- -->
+                                @if(\Route::getFacadeRoot()->current()->uri() == 'edit-emp/{id}')
                                 <h4 class="wizard-section-title">
                                     <i class="fa fa-file-text pr5"></i> Ex Employment Details </h4>
                                 <section class="wizard-section">
@@ -991,6 +1041,7 @@
                                         </div>
                                     </div>
                                 </section>
+                                @endif
                             </div>
                             <!-- -------------- /Wizard -------------- -->
 

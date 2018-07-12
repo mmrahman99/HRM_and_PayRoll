@@ -45,7 +45,8 @@ class EmpController extends Controller
 
         $user           = new User;
         $user->name     = $request->emp_name;
-        $user->email    = str_replace(' ', '_', $request->emp_name) . '@sipi-ip.sg';
+        $user->email = $request->email;//str_replace(' ', '_', $request->emp_name) . '@sipi-ip.sg';
+        $user->access_type = $request->access_type;
         $user->password = bcrypt('123456');
         $user->save();
 
@@ -68,7 +69,7 @@ class EmpController extends Controller
         $emp->offer_acceptance     = $request->offer_acceptance;
         $emp->probation_period     = $request->probation_period;
         $emp->date_of_confirmation = date_format(date_create($request->date_of_confirmation), 'Y-m-d');
-        $emp->department           = $request->department;
+        $emp->department = 1;//$request->department;
         $emp->salary               = $request->salary;
         $emp->account_number       = $request->account_number;
         $emp->bank_name            = $request->bank_name;

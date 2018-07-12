@@ -40,6 +40,8 @@
             onFinished: function (event, currentIndex) {
                 event.preventDefault();
                 var emp_name = $('#emp_name').val();
+                var email = $('#email').val();
+                var access_type = $('#access_type').val();
                 //alert(emp_name)
                 var emp_code = $('#emp_code').val();
                 var emp_status = $("input[name='emp_status']:checked").val();
@@ -88,6 +90,8 @@
                     formData.append('photo', photo.files[0], photo.value);
                 }
                 formData.append('emp_name', emp_name);
+                formData.append('email', email);
+                formData.append('access_type', access_type);
                 formData.append('emp_code', emp_code);
                 formData.append('emp_status', emp_status);
                 formData.append('role', role);
