@@ -72,13 +72,13 @@
                                                 <label class="col-md-3 control-label"> Client </label>
                                                 <div class="col-md-6">
                                                  {!! Form::select('client_id', $model->clients, $project->client_id, ['class' => 'form-control']) !!}
-                                                    {{--<select class="selectpicker form-control" data-done-button="true"
-                                                            name="client_id" required>
-                                                        <option value="" selected>Select One</option>
-                                                        @foreach($model->clients as $client)
-                                                            <option value="{{$client->id}}">{{$client->name}}</option>
-                                                        @endforeach
-                                                    </select>--}}
+                                                    {{--<select class="selectpicker form-control" data-done-button="true"--}}
+                                                    {{--name="client_id" required>--}}
+                                                    {{--<option value="" selected>Select One</option>--}}
+                                                    {{--@foreach($model->clients as $client)--}}
+                                                    {{--<option value="{{$client->id}}">{{$client->name}}</option>--}}
+                                                    {{--@endforeach--}}
+                                                    {{--</select>--}}
                                                 </div>
                                             </div>
 

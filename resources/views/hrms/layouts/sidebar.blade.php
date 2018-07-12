@@ -18,12 +18,14 @@
 
 <!-- -------------- Sidebar Menu  -------------- -->
 <ul class="nav sidebar-menu scrollable">
+
     <li class="active">
         <a  href="{{route('dashboard')}}">
             <span class="fa fa-dashboard"></span>
             <span class="sidebar-title">Dashboard</span>
         </a>
     </li>
+
     @if(Auth::user()->isHR())
         <li>
             <a class="accordion-toggle" href="/dashboard">
@@ -141,6 +143,7 @@
                 </li>
             </ul>
         </li>
+
         <li>
             <a class="accordion-toggle" href="/dashboard">
                 <span class="fa fa fa-laptop"></span>
@@ -166,7 +169,9 @@
                 </li>
             </ul>
         </li>
+
     @endif
+
     <li>
         <a class="accordion-toggle" href="/dashboard">
             <span class="fa fa-envelope"></span>
@@ -203,6 +208,7 @@
     </li>
 
     @if(Auth::user()->isHR())
+
         <li>
             <a class="accordion-toggle" href="/dashboard">
                 <span class="fa fa-arrow-circle-o-up"></span>
@@ -264,8 +270,8 @@
                 </li>
             </ul>
         </li>
-    @endif
 
+    @endif
 
     <li>
         <a class="accordion-toggle" href="#">
@@ -296,7 +302,9 @@
             </li>
         </ul>
     </li>
+
     @if(Auth::user()->isHR())
+
         <li>
             <a class="accordion-toggle" href="#">
                 <span class="fa fa-clock-o"></span>
@@ -341,13 +349,55 @@
     </li>
 
     @if(Auth::user()->isCoordinator() ||  Auth::user()->isHR())
+
         <li>
             <a href="/create-event">
                 <span class="fa fa-calendar-o"></span>
                 <span class="sidebar-title"> Event  &nbsp Invitation </span>
             </a>
         </li>
+
     @endif
+
+    @if(Auth::user()->isHR())
+
+        <li>
+            <a class="accordion-toggle" href="/dashboard">
+                <span class="fa fa-line-chart"></span>
+                <span class="sidebar-title">Financial</span>
+                <span class="caret"></span>
+            </a>
+            <ul class="nav sub-nav">
+                <li>
+                    <a href="/calculator">
+                        <span class="glyphicon glyphicons-calculator"></span> Calculator </a>
+                </li>
+                <li>
+                    <a href="/company-financial">
+                        <span class="glyphicon glyphicons-bank"></span> Company Finances </a>
+                </li>
+                <li>
+                    <a href="/edit-financial-data">
+                        <span class="glyphicon glyphicons-bank"></span> Edit Financial Data </a>
+                </li>
+                <li>
+                    <a href="/financial-manager">
+                        <span class="glyphicon glyphicons-bank"></span> Financial Manager </a>
+                </li>
+                <li>
+                    <a href="/payroll-manager">
+                        <span class="glyphicon glyphicons-bank"></span> Payroll Manager </a>
+                </li>
+                <li>
+                    <a href="/show-payslips">
+                        <span class="glyphicon glyphicons-bank"></span> View Payslips </a>
+                </li>
+            </ul>
+        </li>
+
+    @endif
+
+
     <li>
 
         <a href="/download-forms">

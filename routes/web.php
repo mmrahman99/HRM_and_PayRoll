@@ -336,6 +336,21 @@ Route::group(['middleware' => ['auth']], function ()
     Route::get('delete-project-assignment/{id}', ['as' => 'delete-project-assignment', 'uses' => 'ProjectController@doDeleteAssign']);
 
 
+    // routes for financial
+
+    Route::get('calculator', ['as' => 'calculator', 'uses' => 'PayrollController@showCalculator']);
+
+    Route::get('company-financial', ['as' => 'company-financial', 'uses' => 'payrollController@showCompanyFinancial']);
+
+    Route::get('edit-financial-data', ['as' => 'edit-financial-data', 'uses' => 'payrollController@showEditFinancialData']);
+
+    Route::get('financial-manager', ['as' => 'financial-manager', 'uses' => 'payrollController@showFinancialManager']);
+
+    Route::get('payroll-manager', ['as' => 'payroll-manager', 'uses' => 'payrollController@showPayrollManager']);
+
+    Route::get('payslip', ['as' => 'payslip', 'uses' => 'payrollController@showPayslip']);
+
+    Route::get('show-payslips', ['as' => 'show-payslips', 'uses' => 'payrollController@showAllPayslips']);
     //Route::get('assign-project', 'ProjectController@assignProject')->name('assign-project');
 
 });
