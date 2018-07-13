@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\payslips;
 use App\tax_schemes;
 use App\User;
 use Illuminate\Http\Request;
@@ -41,12 +42,14 @@ class PayrollController extends Controller
 
     public function showAllPayslips()
     {
-        $emps = User::with('employee', 'role.role')->paginate(15);
+        $emps = payslips::all();
         $column = '';
         $string = '';
+        $dateFrom = '';
+        $dateTo = '';
 
         return view('hrms.payroll.show-payslips',
-            compact('emps', 'column', 'string'));
+            compact('emps', 'column', 'string', 'dateFrom', 'dateTo'));
     }
 
     public function tax(Request $request)
@@ -103,7 +106,6 @@ class PayrollController extends Controller
         //net_income = $request->$net_income;
 
     }
-
 
 
     public function showInsurance()
