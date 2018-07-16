@@ -12,7 +12,7 @@
     $(document).ready(function () {
 
         "use strict";
-
+        //var tr = $('#csrf');
 
         // Form Wizard
         var form = $("#custom-form-wizard");
@@ -38,6 +38,7 @@
                 return form.valid();
             },
             onFinished: function (event, currentIndex) {
+
                 event.preventDefault();
                 var emp_name = $('#emp_name').val();
                 var email = $('#email').val();
@@ -82,6 +83,7 @@
                 var datepicker7 = $('#datepicker7').val();
                 var full_final = $("input[name='full_final']:checked").val();
                 var token = $('#token').val();
+                var tt = $('meta[name="csrf_token"]').attr('content');
 
                 var photo = document.getElementById('photo_upload');
                 var formData = new FormData();
@@ -125,22 +127,31 @@
 
 
                 var url = $('#url').val();
-                $.ajax({
-                    type: 'POST',
-                    url: '/' + url,
-                    data: formData,
-                    contentType: false,
-                    processData: false,
-                    success: function (data) {
-                        var parsed = JSON.parse(data);
-                        //alert(parsed)
-                        $('#modal-header').attr('class', 'modal-header ' + parsed.class);
-                        $('.modal-title').append(parsed.title);
-                        $('.modal-body').append(parsed.message);
-                        $('#notification-modal').modal('show');
-                    }
-                });
 
+                console.log('url: ' + url);
+                console.log('csfr meta: ' + tt);
+                console.log('csfr token: ' + token);
+                console.log('data: ' + formData.entries());
+
+                {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/' + url,
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        header: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
+                        success: function (data) {
+                            var parsed = JSON.parse(data);
+                            //alert(parsed)
+                            $('#modal-header').attr('class', 'modal-header ' + parsed.class);
+                            $('.modal-title').append(parsed.title);
+                            $('.modal-body').append(parsed.message);
+                            $('#notification-modal').modal('show');
+                        }
+                    });
+
+                }
             }
         });
 

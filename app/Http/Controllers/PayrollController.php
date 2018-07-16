@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
 use App\payslips;
 use App\tax_schemes;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PayrollController extends Controller
@@ -52,12 +54,67 @@ class PayrollController extends Controller
             compact('emps', 'column', 'string', 'dateFrom', 'dateTo'));
     }
 
-    public function tax(Request $request)
+    public function showInsurance()
     {
+        return view('hrms.payroll.show-insurance');
+    }
 
+    public function showAddInsurance()
+    {
+        return view('hrms.payroll.add-insurance');
+    }
 
-        $gross = $request->gross_salary;
-        $allowance = $request->allowance;
+    public function addInsurance(Request $request)
+    {
+        $scheme = new tax_schemes;
+
+        $scheme->name = $request->scheme_name;
+        $scheme->total_rate = $request->total_rate;
+        $scheme->company_rate = $request->company_rate;
+        $scheme->employee_rate = $request->employee_rate;
+
+        $scheme->save();
+
+        return redirect('/show-insurance');
+    }
+
+    public function calculate()
+    {
+        $emps = User::all();
+
+        foreach ($emps as $emp) {//checks if user is
+            if (!$emp->gross_salary) {
+                $gross = 10000;
+            } else
+                $gross = $emp->employee()->gross_salary;
+            //            $allowance = $emp->allowance;
+
+            $ans = $this->tax($gross);
+
+            $payslip = new payslips;
+
+            $payslip->employee_id = $emp->id;
+            $payslip->date = Carbon::now()->format('y-m-d');
+            $payslip->gross_salary = $gross;//$emp->employee()->salary;
+            $payslip->total_tax_deducted = $ans['total_tax'];
+            $payslip->net_salary = $ans['net_income'];
+            $payslip->status = 'paid';
+
+            $payslip->save();
+        }
+
+        return redirect('show-payslips');
+//
+//  return (redirect('/incomeshow')->with('values', $netIncome,$totalTax,$ssnit));
+//
+//        return($netIncome);
+
+        //net_income = $request->$net_income;
+
+    }
+
+    public function tax(float $gross, float $allowance = 0)
+    {
 
         $ssnitRate = 5.5;
         $taxRates = array(
@@ -105,31 +162,8 @@ class PayrollController extends Controller
 
         //net_income = $request->$net_income;
 
-    }
+        return array('net_income' => $net, 'total_tax' => $tax, 'insurance' => $ins);
 
-
-    public function showInsurance()
-    {
-        return view('hrms.payroll.show-insurance');
-    }
-
-    public function showAddInsurance()
-    {
-        return view('hrms.payroll.add-insurance');
-    }
-
-    public function addInsurance(Request $request)
-    {
-        $scheme = new tax_schemes;
-
-        $scheme->name = $request->scheme_name;
-        $scheme->total_rate = $request->total_rate;
-        $scheme->company_rate = $request->company_rate;
-        $scheme->employee_rate = $request->employee_rate;
-
-        $scheme->save();
-
-        return redirect('/show-insurance');
     }
 
 }

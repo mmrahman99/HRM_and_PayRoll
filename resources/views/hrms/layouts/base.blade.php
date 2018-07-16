@@ -43,7 +43,7 @@
     <!-- Sweet alert -->
     <link rel="stylesheet" type="text/css" href="/assets/sweetalert.css">
 
-    <title>Light Bootstrap Dashboard by Creative Tim</title>
+    {{--<title>Light Bootstrap Dashboard by Creative Tim</title>--}}
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
     <meta name="viewport" content="width=device-width"/>
@@ -62,6 +62,27 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet"/>
+
+    {{--<title>Get Shit Done Bootstrap Wizard by Creative Tim</title>--}}
+
+    <meta charset="utf-8"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+    <meta name="viewport" content="width=device-width"/>
+
+    <!--     Fonts and icons     -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
+
+    <!-- CSS Files -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="assets/css/gsdk-bootstrap-wizard.css" rel="stylesheet"/>
+
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+{{--<link href="assets/css/demo.css" rel="stylesheet" />--}}
 
 @stack('styles')
 
@@ -281,7 +302,7 @@
                 </a>
             </div>
             <!-- -------------- /Sidebar Hide Button -------------- -->
-
+            </header>
         </div>
         <!-- -------------- /Sidebar Left Wrapper  -------------- -->
 

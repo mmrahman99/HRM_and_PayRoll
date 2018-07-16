@@ -9,6 +9,7 @@
     <meta name="description" content="Alliance - A Responsive HTML5 Admin UI Framework">
     <meta name="author" content="ThemeREX">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf_token" id="csrf" content="{{csrf_token()}}">
 
     <!-- -------------- Fonts -------------- -->
     <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
@@ -320,6 +321,7 @@
                                     <i class="fa fa-user pr5"></i> Personal Details</h4>
                                 <section class="wizard-section">
                                     <div class="section">
+                                        <input type="hidden" value="{!! csrf_token() !!}" id="token">
                                         <label for="photo-upload"><h6 class="mb20 mt40"> Photo </h6></label>
                                         <label class="field prepend-icon append-button file">
                                             <span class="button">Choose File</span>
@@ -1030,7 +1032,6 @@
 
                                         <div class="option-group field">
                                             <label class="field option mb5">
-                                                <input type="hidden" value="{!! csrf_token() !!}" id="token">
                                                 <input type="radio" value="1" name="full_final" id="full_final"
                                                        @if(isset($emps))@if($emps->employee->full_final == '1')checked @endif @endif>
                                                 <span class="radio"></span>Yes</label>

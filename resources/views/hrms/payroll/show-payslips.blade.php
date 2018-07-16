@@ -93,6 +93,7 @@
     {{--</section>--}}
     {{--</div>--}}
 
+    {{--TODO: complete cosmetic changes--}}
     <div class="content">
 
         <header id="topbar" class="alt">
@@ -196,18 +197,18 @@
                                                 @foreach($emps as $emp)
                                                     <tr>
                                                         <td class="text-center">{{$i+=1}}</td>
-                                                        <td class="text-center">{{$emp->employee()->name}}</td>
-                                                        <td class="text-center">{{$emp->employee()->code}}</td>
+                                                        <td class="text-center">{{'name')//$emp->user()->id}}</td>
+                                                        <td class="text-center">{{'code')//$emp->user()->email}}</td>
                                                         {{--<td class="text-center">{{(isset($post))? $leave->leave_type : getLeaveType($leave->leave_type_id)}}</td>--}}
-                                                        <td class="text-center">{{getFormattedDate($emp->payslips()->date)}}</td>
+                                                        <td class="text-center">{{getFormattedDate($emp->date)}}</td>
                                                         {{--<td class="text-center">{{getFormattedDate($leave->date_to)}}</td>--}}
-                                                        <td class="text-center">{{$emp->payslips()->gross_salary}}</td>
+                                                        <td class="text-center">{{$emp->gross_salary}}</td>
                                                         <td class="text-center"
-                                                            id="remark-{{$emps->id}}">{{(isset($emp->total_tax_deducted)) ? $emp->total_tax_deducted : 'N/A'}}</td>
+                                                            id="remark-{{$emp->id}}">{{$emp->total_tax_deducted}}</td>
                                                         <input type="hidden" value="{!! csrf_token() !!}" id="token">
                                                         <td class="text-center">
                                                             <div class="btn-group text-right"
-                                                                 id="button-{{$emp->employee()->user()->id}}">
+                                                                 id="button-{{$emp->id}}">
                                                                 @if($emp->status==0)
                                                                     <button type="button"
                                                                             class="btn btn-info br2 btn-xs fs12 dropdown-toggle"
@@ -249,7 +250,7 @@
                                                 @endforeach
                                                 <tr>
                                                     <td colspan="8">
-                                                        {!! $emps->render() !!}
+                                                        {{--{!! $emps->render() !!}--}}
                                                     </td>
                                                 </tr>
                                                 </tbody>

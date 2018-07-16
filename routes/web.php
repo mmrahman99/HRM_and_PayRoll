@@ -347,6 +347,8 @@ Route::group(['middleware' => ['auth']], function ()
     Route::get('financial-manager', ['as' => 'financial-manager', 'uses' => 'payrollController@showFinancialManager']);
 
     Route::get('payroll-manager', ['as' => 'payroll-manager', 'uses' => 'payrollController@showPayrollManager']);
+    Route::post('payroll-manager', ['as' => 'payroll-manager', 'uses' => 'payrollController@calculate']);
+
 
     Route::get('payslip', ['as' => 'payslip', 'uses' => 'payrollController@showPayslip']);
 
@@ -359,6 +361,9 @@ Route::group(['middleware' => ['auth']], function ()
     Route::post('add-insurance', ['as' => 'add-insurance', 'uses' => 'payrollController@AddInsurance']);
 
 
+    Route::get('add-employee-2', function () {
+        return view('hrms.employee.add-employee');
+    });
     //Route::get('assign-project', 'ProjectController@assignProject')->name('assign-project');
 
 });
