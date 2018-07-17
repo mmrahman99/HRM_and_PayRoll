@@ -1,9 +1,6 @@
 .wizard-card {
   min-height: 410px;
-  background-color: #FFFFFF;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15), 0 0 1px 1px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  padding: 10px 0;
+  @include shadow-16dp();
 
   .picture-container {
     position: relative;
@@ -14,9 +11,9 @@
   .picture {
     width: 106px;
     height: 106px;
-    background-color: $gray-bg;
+    background-color: #999999;
     border: 4px solid #CCCCCC;
-    color: $white-color;
+    color: #FFFFFF;
     border-radius: 50%;
     margin: 5px auto;
     overflow: hidden;
@@ -26,6 +23,41 @@
     &:hover {
       border-color: #2ca8ff;
     }
+  }
+
+  .moving-tab {
+    position: absolute;
+    text-align: center;
+    padding: 12px;
+    font-size: 12px;
+    text-transform: uppercase;
+    -webkit-font-smoothing: subpixel-antialiased;
+    top: -4px;
+    left: 0px;
+    border-radius: 4px;
+    color: $white-color;
+    cursor: pointer;
+    font-weight: 500;
+  }
+
+  &[data-color="purple"] {
+    @include set-wizard-color($brand-primary);
+  }
+
+  &[data-color="green"] {
+    @include set-wizard-color($brand-success);
+  }
+
+  &[data-color="blue"] {
+    @include set-wizard-color($brand-info);
+  }
+
+  &[data-color="orange"] {
+    @include set-wizard-color($brand-warning);
+  }
+
+  &[data-color="red"] {
+    @include set-wizard-color($brand-danger);
   }
 
   .picture input[type="file"] {
@@ -39,64 +71,38 @@
     width: 100%;
   }
 
-  .moving-tab {
-    position: absolute;
-    text-align: center;
-    padding: 10px;
-    font-size: 12px;
-    text-transform: uppercase;
-    -webkit-font-smoothing: subpixel-antialiased;
-    top: 0px;
-    left: 0px;
-    color: $white-color;
-    cursor: pointer;
-    font-weight: 500;
-  }
-
   .picture-src {
     width: 100%;
   }
 
   .tab-content {
     min-height: 340px;
-    padding: 20px 10px;
+    padding: 20px 15px;
   }
 
   .wizard-footer {
-    padding: 0 10px;
+    padding: 0 15px;
+
+    .checkbox {
+      margin-top: 16px;
+    }
   }
 
   .disabled {
     display: none;
   }
 
-  .wizard-header h3 {
-    font-weight: 200;
+  .wizard-header {
     text-align: center;
+    padding: 25px 0 35px;
+
+    h5 {
+      margin: 5px 0 0;
+    }
   }
 
-  &[data-color="green"] {
-    @include set-wizard-color($success-color);
-  }
-
-  &[data-color="azzure"] {
-    @include set-wizard-color($info-color);
-  }
-
-  &[data-color="blue"] {
-    @include set-wizard-color($primary-color);
-  }
-
-  &[data-color="orange"] {
-    @include set-wizard-color($warning-color);
-  }
-
-  &[data-color="red"] {
-    @include set-wizard-color($danger-color);
-  }
-
-  &[data-color="custom"] {
-    @include set-wizard-color($new-blue);
+  .nav-pills > li {
+    text-align: center;
   }
 
   .btn {
@@ -120,8 +126,7 @@
       height: 116px;
       width: 116px;
       border-radius: 50%;
-      background-color: $gray-bg;
-      color: $white-color;
+      color: $gray-color;
       margin: 0 auto 20px;
       border: 4px solid #CCCCCC;
       transition: all 0.2s;
@@ -129,7 +134,7 @@
     }
 
     i {
-      font-size: 30px;
+      font-size: 40px;
       line-height: 111px;
     }
 
@@ -153,7 +158,12 @@
   }
 
   .description {
-    color: $gray-color;
+    color: #999999;
     font-size: 14px;
   }
+
+  .wizard-title {
+    margin: 0;
+  }
+
 }

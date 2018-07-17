@@ -6,13 +6,18 @@
     <meta charset="utf-8">
     <title> Human Resource Management System </title>
     <meta name="description" content="HRMS">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf_token" content="{{csrf_token()}}">
 
     <!-- -------------- Fonts -------------- -->
-    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
+    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'/>
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"/>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic' rel='stylesheet'
-          type='text/css'>
+          type='text/css'/>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet"/>
 
 
     <!-- -------------- Icomoon -------------- -->
@@ -27,15 +32,20 @@
 
     <!-- -------------- CSS - theme -------------- -->
     <link rel="stylesheet" type="text/css" href="/assets/skin/default_skin/css/theme.css">
+    {{--<link href="assets/css/bootstrap.min.css" rel="stylesheet" />--}}
+    {{--<link href="assets/css/gsdk-bootstrap-wizard.css" rel="stylesheet" />--}}
+    <link href="assets/css/material-bootstrap-wizard.css" rel="stylesheet"/>
 
 
     <!-- -------------- CSS - allcp forms -------------- -->
     <link rel="stylesheet" type="text/css" href="/assets/allcp/forms/css/forms.css">
     <link rel="stylesheet" type="text/css" href="/assets/allcp/forms/css/widget.css">
-
     <link rel="stylesheet" type="text/css" href="assets/js/plugins/select2/css/core.css">
     <!-- -------------- Favicon -------------- -->
     <link rel="shortcut icon" href="/assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+
 
     <!--  Custom css -->
     <link rel="stylesheet" type="text/css" href="/assets/custom.css">
@@ -45,41 +55,43 @@
 
     {{--<title>Light Bootstrap Dashboard by Creative Tim</title>--}}
 
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
-    <meta name="viewport" content="width=device-width"/>
+{{--<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>--}}
+{{--<meta name="viewport" content="width=device-width"/>--}}
+{{--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />--}}
 
 
-    <!-- Bootstrap core CSS     -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
 
-    <!-- Animation library for notifications   -->
-    <link href="assets/css/animate.min.css" rel="stylesheet"/>
+{{--<!-- Bootstrap core CSS     -->--}}
+{{--<link href="assets/css/bootstrap.min.css" rel="stylesheet"/>--}}
 
-    <!--  Light Bootstrap Table core CSS    -->
-    <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
+{{--<!-- Animation library for notifications   -->--}}
+{{--<link href="assets/css/animate.min.css" rel="stylesheet"/>--}}
 
-    <!--     Fonts and icons     -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet"/>
+{{--<!--  Light Bootstrap Table core CSS    -->--}}
+{{--<link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>--}}
+
+{{--<!--     Fonts and icons     -->--}}
+{{--<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">--}}
+{{--<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>--}}
+{{--<link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet"/>--}}
 
     {{--<title>Get Shit Done Bootstrap Wizard by Creative Tim</title>--}}
 
-    <meta charset="utf-8"/>
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="assets/img/favicon.png">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+{{--<meta charset="utf-8"/>--}}
+{{--<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">--}}
+{{--<link rel="icon" type="image/png" href="assets/img/favicon.png">--}}
+{{--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>--}}
 
 
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
-    <meta name="viewport" content="width=device-width"/>
+{{--<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>--}}
+{{--<meta name="viewport" content="width=device-width"/>--}}
 
-    <!--     Fonts and icons     -->
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
+{{--<!--     Fonts and icons     -->--}}
+{{--<link href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">--}}
 
-    <!-- CSS Files -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="assets/css/gsdk-bootstrap-wizard.css" rel="stylesheet"/>
+{{--<!-- CSS Files -->--}}
+{{--<link href="assets/css/bootstrap.min.css" rel="stylesheet"/>--}}
+{{--<link href="assets/css/gsdk-bootstrap-wizard.css" rel="stylesheet"/>--}}
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
 {{--<link href="assets/css/demo.css" rel="stylesheet" />--}}
