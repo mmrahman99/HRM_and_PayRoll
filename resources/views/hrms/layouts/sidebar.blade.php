@@ -43,9 +43,13 @@
                         <span class="glyphicon glyphicon-tags"></span> Employee Listing </a>
                 </li>
                 <li>
-                    <a href="{{route('upload-emp')}}">
-                        <span class="glyphicon glyphicon-tags"></span> Upload </a>
+                    <a href="{{route('performance')}}">
+                        <span class="glyphicon glyphicon-tags"></span> Employee Performance </a>
                 </li>
+                {{--<li>--}}
+                {{--<a href="{{route('upload-emp')}}">--}}
+                {{--<span class="glyphicon glyphicon-tags"></span> Upload </a>--}}
+                {{--</li>--}}
             </ul>
         </li>
 
@@ -315,6 +319,11 @@
                 <li>
                     <a href="{{route('attendance-upload')}}">
                         <span class="glyphicon glyphicon-book"></span> Upload Sheets</a>
+                </li>
+
+                <li>
+                    <a href="{{route('attendance-manager')}}">
+                        <span class="glyphicon glyphicon-book"></span>Attendance Listings</a>
                 </li>
 
             </ul>

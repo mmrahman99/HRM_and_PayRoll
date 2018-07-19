@@ -48,6 +48,7 @@ Route::group(['middleware' => ['auth']], function ()
 
     Route::get('profile', 'ProfileController@show');
 
+
     //Routes for add-employees
 
     Route::get('add-employee', ['as' => 'add-employee', 'uses' => 'EmpController@addEmployee']);
@@ -366,5 +367,17 @@ Route::group(['middleware' => ['auth']], function ()
 //        return view('hrms.employee.add-employee');
 //    });
     //Route::get('assign-project', 'ProjectController@assignProject')->name('assign-project');
+
+
+    Route::get('profile/template', 'TasksController@template');
+    Route::get('sign-in', ['as' => 'sign-in', 'uses' => 'ProfileController@signIn']);
+    Route::get('sign-out', ['as' => 'sign-out', 'uses' => 'ProfileController@signOut']);
+
+
+//        Route::view('hrms/employee/performance', 'performance');
+
+    Route::get('performance', function () {
+        return view('hrms.employee.performance');
+    })->name('performance');
 
 });

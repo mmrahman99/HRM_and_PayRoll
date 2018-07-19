@@ -8,8 +8,8 @@
         <label class="col-md-3 control-label"> Input Gross Salary </label>
         <br>
         <div class="col-md-6">
-            <input type="text" placeholder="Gross Salary" name="gross_salary"
-                   id="gross" class="select2-single form-control" required>
+            <input type="number" placeholder="Gross Salary" name="gross_salary"
+                   id="gross" class="select2-single form-control" required value="0">
         </div>
     </div>
     <br>
@@ -18,8 +18,8 @@
         <label class="col-md-3 control-label"> Allowance </label>
         <br>
         <div class="col-md-6">
-            <input type="text" placeholder="Allowance" name="allowance"
-                   id="allowance" class="select2-single form-control">
+            <input type="number" placeholder="Allowance" name="allowance"
+                   id="allowance" class="select2-single form-control" required value="0">
         </div>
     </div>
 
@@ -58,7 +58,9 @@
     </div>
     <br>
     <div class="form-group">
-        <input type="button" value="Calculate" onclick="computeTaxes()">
+        <div class="col-md-6">
+            <input type="button" class="btn btn-primary " value="Calculate" onclick="computeTaxes()">
+        </div>
     </div>
     <!-- <div class="form-group">
         <label class="col-md-3 control-label"></label>
@@ -77,6 +79,7 @@
 
         function computeTaxes() {
 
+            // var allowance = parseInt($("#allowance").val());
             var gross = parseInt($("#gross").val());
             var allowances = parseInt($("#allowance").val());
             var ssnitRate = 5.5;

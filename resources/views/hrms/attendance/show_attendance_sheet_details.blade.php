@@ -94,11 +94,9 @@
                                             <th class="text-center">Code</th>
                                             <th class="text-center">Name</th>
                                             <th class="text-center">Date</th>
-                                            <th class="text-center">Day</th>
                                             <th class="text-center">In Time</th>
                                             <th class="text-center">Out Time</th>
                                             <th class="text-center">Hours Worked</th>
-                                            <th class="text-center">Difference</th>
                                             <th class="text-center">Status</th>
                                             <th class="text-center">Leave Status</th>
                                             {{--<th class="text-center">Action</th>--}}
@@ -115,11 +113,9 @@
                                                 <td class="text-center">{{$attendance->code}}</td>
                                                 <td class="text-center">{{$attendance->name}}</td>
                                                 <td class="text-center">{{getFormattedDate($attendance->date)}}</td>
-                                                <td class="text-center">{{$attendance->day}}</td>
                                                 <td class="text-center">{{$attendance->in_time}}</td>
                                                 <td class="text-center">{{$attendance->out_time}}</td>
                                                 <td class="text-center">{{round($attendance->hours_worked,2)}}</td>
-                                                <td class="text-center">{{$attendance->difference}}</td>
                                                 <td class="text-center">{{convertAttendanceFrom($attendance->status)}}</td>
                                                 <td class="text-center">{{$attendance->leave_status}}</td>
                                                 {{--<td class="text-center">--}}

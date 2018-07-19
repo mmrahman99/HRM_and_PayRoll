@@ -142,15 +142,25 @@
                 </div>
             </div>
 
-            <div class="col-md-3 pull-right">
-                <div class="small-box bg-black">
-                    <div class="inner datebar" align="center">
-                        <p style="color:ghostwhite">{{\Carbon\Carbon::now()->format('l, jS \\of F, Y')}}</p>
-                        <h3 style="color: ghostwhite" id="clock"></h3>
-                        <br/>
+            <form>
+                <div class="col-md-3 pull-right">
+                    <div class="small-box bg-black">
+                        <div class="inner datebar" align="center">
+                            <p style="color:ghostwhite"
+                               id="time">{{\Carbon\Carbon::now()->format('l, jS \\of F, Y')}}</p>
+                            <h3 style="color: ghostwhite" id="clock"></h3>
+                            <br/>
+                            <input class="btn btn-primary" value="Sign IN" onclick="signin()" style="color:ghostwhite">
+                            <input class="btn btn-primary" value="Sign Out" onclick="signOut()"
+                                   style="color:ghostwhite">
+
+                        </div>
                     </div>
+                    <input id="output">
+
                 </div>
-            </div>
+            </form>
+
 
             @if($events)
             <div class="col-md-3 pull-right">
@@ -224,6 +234,12 @@
                                         <td><strong>Salary</strong></td>
                                         <td>{{$details->salary}}</td>
                                     </tr>
+
+                                    <tr>
+                                        <td class="text-center"><i class="fa fa-credit-card"></i></td>
+                                        <td><strong>Name</strong></td>
+                                        <td>{{$details->name}}</td>
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -259,4 +275,76 @@
         return i;
     }
     setInterval(startTime, 500);
+
+
+    function signin() {
+        alert("you've signed in!");
+        $("#output").val("Signed In");
+        {{--alert({{\Carbon\Carbon::now()->format('l, jS \\of F, Y')}});--}}
+        // var clock = parseInt($("#clock").val());
+
+        {{--@@php(echo alert();@endphp;--}}
+        //        var time = Carbon::now()->format('h-i-s')
+
+        // $("#output").val(time);
+
+        // console.log('X-CSRF-TOKEN' + $('meta[name="csrf_token"]').attr('content'));
+
+        {
+            $.ajax({
+                type: 'GET',
+                url: '/sign-in',
+                {{--data: {@php Auth::id() @endphp},--}}
+                contentType: false,
+                processData: false,
+                // header: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
+                success: function (data) {
+                    console.log(data);
+                    // var parsed = JSON.parse(data);
+
+
+                }
+            });
+
+        }
+    }
+
+
+    function signOut() {
+        alert("you've signed out!");
+        $("#output").val("Signed Out");
+        {{--alert({{\Carbon\Carbon::now()->format('l, jS \\of F, Y')}});--}}
+        // var clock = parseInt($("#clock").val());
+
+        {{--@@php(echo alert();@endphp;--}}
+        //        var time = Carbon::now()->format('h-i-s')
+
+        // $("#output").val(time);
+
+        // console.log('X-CSRF-TOKEN' + $('meta[name="csrf_token"]').attr('content'));
+
+        {
+            $.ajax({
+                type: 'GET',
+                url: '/sign-out',
+                {{--data: {@php Auth::id() @endphp},--}}
+                contentType: false,
+                processData: false,
+                // header: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
+                success: function (data) {
+                    console.log(data);
+                    // var parsed = JSON.parse(data);
+
+
+                }
+            });
+
+        }
+    }
+
+
+
 </script>
+
+
+
