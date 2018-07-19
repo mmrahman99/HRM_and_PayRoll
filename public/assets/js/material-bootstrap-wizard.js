@@ -29,18 +29,23 @@ $(document).ready(function () {
     // Code for the Validator
     var $validator = $('.wizard-card form').validate({
         rules: {
-            firstname: {
+            emp_code: {
                 required: true,
-                minlength: 3
             },
-            lastname: {
+            name: {
                 required: true,
-                minlength: 3
             },
             email: {
                 required: true,
-                minlength: 3,
+                email: true,
+            },
+            role: {
+                required: true,
+            },
+            salary: {
+                required: true,
             }
+
         },
 
         errorPlacement: function (error, element) {
@@ -133,7 +138,7 @@ $(document).ready(function () {
     });
 
     $('[data-toggle="wizard-radio"]').click(function () {
-        wizard = $(this).closest('.wizard-card');
+        wizard = $(this).closest('.col-md-10');
         wizard.find('[data-toggle="wizard-radio"]').removeClass('active');
         $(this).addClass('active');
         $(wizard).find('[type="radio"]').removeAttr('checked');

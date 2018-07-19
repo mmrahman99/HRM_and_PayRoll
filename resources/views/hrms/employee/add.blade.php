@@ -442,8 +442,8 @@
                                         <div class="option-group field">
                                             <label class="field option mb5">
                                                 @if(\Route::getFacadeRoot()->current()->uri() == 'edit-emp/{id}')
-                                                <input type="radio" name="emp_status" id="emp_status" value="1"
-                                                       @if(isset($emps))@if($emps->employee->status == '1') checked @endif @endif>
+                                                    <input type="radio" name="emp_status" id="emp_status" value="1"
+                                                           @if(isset($emps))@if($emps->employee->status == '1') checked @endif @endif>
                                                 <span class="radio"></span>Present</label>
                                             <label class="field option mb5">
                                                 <input type="radio" name="emp_status" id="emp_status" value="0"
@@ -962,7 +962,6 @@
                                     <i class="fa fa-file-text pr5"></i> Ex Employment Details </h4>
                                 <section class="wizard-section">
 
-
                                     <div class="section">
                                         <label for="datepicker6" class="field prepend-icon mb5"><h6 class="mb20 mt40">
                                                 Date of Resignation </h6></label>
@@ -970,7 +969,8 @@
                                         <div class="field prepend-icon">
                                             @if(\Route::getFacadeRoot()->current()->uri() == 'edit-emp/{id}')
                                                 <input type="text" id="datepicker6" class="gui-input fs13" name="dor"
-                                                       value="@if($emps && $emps->employee->date_of_resignation){{$emps->employee->date_of_resignation}}@endif"/>
+                                                       value="@if($emps && $emps->employee->date_of_resignation)
+                                                       {{$emps->employee->date_of_resignation}}@endif"/>
                                                 <label class="field-icon">
                                                     <i class="fa fa-calendar"></i>
                                                 </label>

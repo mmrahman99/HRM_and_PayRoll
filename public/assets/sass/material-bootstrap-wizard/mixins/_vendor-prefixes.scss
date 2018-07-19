@@ -37,6 +37,16 @@
     }
   }
 
+  .choice {
+    &:hover,
+    &.active {
+      .icon-small {
+        border-color: $color;
+        color: $color;
+      }
+    }
+  }
+
   .form-group {
     .form-control {
       background-image: linear-gradient($color, $color), linear-gradient($mdb-input-underline-color, $mdb-input-underline-color);

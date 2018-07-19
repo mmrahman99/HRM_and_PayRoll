@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\department;
 use App\Jobs\ExportData;
 use App\Models\Employee;
 use App\Models\EmployeeUpload;
@@ -24,6 +25,14 @@ class EmpController extends Controller
         $roles = Role::get();
 
         return view('hrms.employee.add', compact('roles'));
+    }
+
+    public function addEmployee2()
+    {
+        $roles = Role::get();
+        $departments = department::get();
+
+        return view('hrms.employee.add-employee', compact('roles', 'departments'));
     }
 
     public function processEmployee(Request $request)
@@ -54,22 +63,22 @@ class EmpController extends Controller
         $emp->photo                = $filename;
         $emp->name                 = $request->emp_name;
         $emp->code                 = $request->emp_code;
-        $emp->status               = $request->emp_status;
+        $emp->status = 1;//$request->emp_status;//
         $emp->gender               = $request->gender;
         $emp->date_of_birth        = date_format(date_create($request->dob), 'Y-m-d');
         $emp->date_of_joining      = date_format(date_create($request->doj), 'Y-m-d');
-        $emp->number               = $request->number;
-        $emp->qualification        = $request->qualification;
-        $emp->emergency_number     = $request->emergency_number;
+        $emp->number = $request->mob_number;
+        $emp->qualification = $request->qualification_list;
+        $emp->emergency_number = $request->emer_number;
         $emp->pan_number           = $request->pan_number;
-        $emp->father_name          = $request->father_name;
+        $emp->father_name = $request->emer_contact;//
         $emp->current_address      = $request->current_address;
         $emp->permanent_address    = $request->permanent_address;
         $emp->formalities          = $request->formalities;
         $emp->offer_acceptance     = $request->offer_acceptance;
-        $emp->probation_period     = $request->probation_period;
-        $emp->date_of_confirmation = date_format(date_create($request->date_of_confirmation), 'Y-m-d');
-        $emp->department = 1;//$request->department;
+        $emp->probation_period = $request->prob_period;
+        $emp->date_of_confirmation = date_format(date_create($request->doc), 'Y-m-d');
+        $emp->department = $request->department;
         $emp->salary               = $request->salary;
         $emp->account_number       = $request->account_number;
         $emp->bank_name            = $request->bank_name;
@@ -77,9 +86,9 @@ class EmpController extends Controller
         $emp->pf_account_number    = $request->pf_account_number;
         $emp->un_number            = $request->un_number;
         $emp->pf_status            = $request->pf_status;
-        $emp->date_of_resignation  = date_format(date_create($request->date_of_resignation), 'Y-m-d');
+        $emp->date_of_resignation = date_format(date_create($request->dor), 'Y-m-d');
         $emp->notice_period        = $request->notice_period;
-        $emp->last_working_day     = date_format(date_create($request->last_working_day), 'Y-m-d');
+        $emp->last_working_day = date_format(date_create($request->lwd), 'Y-m-d');
         $emp->full_final           = $request->full_final;
         $emp->user_id              = $user->id;
         $emp->save();
@@ -500,39 +509,39 @@ class EmpController extends Controller
             $file->fputcsv($headers);
             foreach ($emps as $emp) {
                 $file->fputcsv([
-                                   $emp->id,
-                                   (
-                                   $emp->employee->photo) ? $emp->employee->photo : 'Not available',
-                                   $emp->employee->code,
-                                   $emp->employee->name,
-                                   $emp->employee->status,
-                                   $emp->employee->gender,
-                                   $emp->employee->date_of_birth,
-                                   $emp->employee->date_of_joining,
-                                   $emp->employee->number,
-                                   $emp->employee->qualification,
-                                   $emp->employee->emergency_number,
-                                   $emp->employee->pan_number,
-                                   $emp->employee->father_name,
-                                   $emp->employee->current_address,
-                                   $emp->employee->permanent_address,
-                                   $emp->employee->formalities,
-                                   $emp->employee->offer_acceptance,
-                                   $emp->employee->probation_period,
-                                   $emp->employee->date_of_confirmation,
-                                   $emp->employee->department,
-                                   $emp->employee->salary,
-                                   $emp->employee->account_number,
-                                   $emp->employee->bank_name,
-                                   $emp->employee->ifsc_code,
-                                   $emp->employee->pf_account_number,
-                                   $emp->employee->un_number,
-                                   $emp->employee->pf_status,
-                                   $emp->employee->date_of_resignation,
-                                   $emp->employee->notice_period,
-                                   $emp->employee->last_working_day,
-                                   $emp->employee->full_final
-                               ]
+                        $emp->id,
+                        (
+                        $emp->employee->photo) ? $emp->employee->photo : 'Not available',
+                        $emp->employee->code,
+                        $emp->employee->name,
+                        $emp->employee->status,
+                        $emp->employee->gender,
+                        $emp->employee->date_of_birth,
+                        $emp->employee->date_of_joining,
+                        $emp->employee->number,
+                        $emp->employee->qualification,
+                        $emp->employee->emergency_number,
+                        $emp->employee->pan_number,
+                        $emp->employee->father_name,
+                        $emp->employee->current_address,
+                        $emp->employee->permanent_address,
+                        $emp->employee->formalities,
+                        $emp->employee->offer_acceptance,
+                        $emp->employee->probation_period,
+                        $emp->employee->date_of_confirmation,
+                        $emp->employee->department,
+                        $emp->employee->salary,
+                        $emp->employee->account_number,
+                        $emp->employee->bank_name,
+                        $emp->employee->ifsc_code,
+                        $emp->employee->pf_account_number,
+                        $emp->employee->un_number,
+                        $emp->employee->pf_status,
+                        $emp->employee->date_of_resignation,
+                        $emp->employee->notice_period,
+                        $emp->employee->last_working_day,
+                        $emp->employee->full_final
+                    ]
                 );
             }
 

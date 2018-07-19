@@ -51,6 +51,7 @@ Route::group(['middleware' => ['auth']], function ()
     //Routes for add-employees
 
     Route::get('add-employee', ['as' => 'add-employee', 'uses' => 'EmpController@addEmployee']);
+    Route::get('add-employee-2', ['as' => 'add-employee-2', 'uses' => 'EmpController@addEmployee2']);
 
     Route::post('add-employee', ['as' => 'add-employee', 'uses' => 'EmpController@processEmployee']);
 
@@ -361,9 +362,9 @@ Route::group(['middleware' => ['auth']], function ()
     Route::post('add-insurance', ['as' => 'add-insurance', 'uses' => 'payrollController@AddInsurance']);
 
 
-    Route::get('add-employee-2', function () {
-        return view('hrms.employee.add-employee');
-    });
+//    Route::get('add-employee-2', function () {
+//        return view('hrms.employee.add-employee');
+//    });
     //Route::get('assign-project', 'ProjectController@assignProject')->name('assign-project');
 
 });
