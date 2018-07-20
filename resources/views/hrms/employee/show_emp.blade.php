@@ -114,7 +114,11 @@
                                                 </button>
                                                 <ul class="dropdown-menu" role="menu">
                                                     <li>
-                                                        <a href="/edit-emp/{{$emp->id}}">Edit</a>
+                                                        <form method="post" action="/edit-emp">
+                                                            <input type="hidden" value="{{csrf_token()}}" name="_token">
+                                                            <input type="hidden" value="{{$emp->id}}" name="id" id="id">
+                                                            <button type="submit" class="button">edit</button>
+                                                        </form>
                                                     </li>
                                                     <li>
                                                         <a href="/delete-emp/{{$emp->id}}">Delete</a>

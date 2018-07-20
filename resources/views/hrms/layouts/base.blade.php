@@ -31,8 +31,8 @@
     <link rel="stylesheet" type="text/css" href="/assets/js/plugins/c3charts/c3.min.css">
 
     <!-- -------------- CSS - theme -------------- -->
-    <link rel="stylesheet" type="text/css" href="/assets/skin/default_skin/css/theme.css">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="/assets/skin/default_skin/css/theme.css">
     {{--<link href="assets/css/gsdk-bootstrap-wizard.css" rel="stylesheet" />--}}
     <link href="assets/css/material-bootstrap-wizard.css" rel="stylesheet"/>
 

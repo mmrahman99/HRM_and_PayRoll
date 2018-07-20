@@ -74,34 +74,35 @@
             </li>
         @endif
 
-        <li>
-            <a class="accordion-toggle" href="/dashboard">
-                <span class="fa fa-user"></span>
-                <span class="sidebar-title">Projects</span>
-                <span class="caret"></span>
-            </a>
-            <ul class="nav sub-nav">
-                <li>
-                    <a href="{{route('add-project')}}">
-                        <span class="glyphicon glyphicon-tags"></span> Add Project </a>
-                </li>
+        {{--Projects--}}
+        {{--<li>--}}
+        {{--<a class="accordion-toggle" href="/dashboard">--}}
+        {{--<span class="fa fa-user"></span>--}}
+        {{--<span class="sidebar-title">Projects</span>--}}
+        {{--<span class="caret"></span>--}}
+        {{--</a>--}}
+        {{--<ul class="nav sub-nav">--}}
+        {{--<li>--}}
+        {{--<a href="{{route('add-project')}}">--}}
+        {{--<span class="glyphicon glyphicon-tags"></span> Add Project </a>--}}
+        {{--</li>--}}
 
-                <li>
-                    <a href="{{route('list-project')}}">
-                        <span class="glyphicon glyphicon-tags"></span> List Project</a>
-                </li>
+        {{--<li>--}}
+        {{--<a href="{{route('list-project')}}">--}}
+        {{--<span class="glyphicon glyphicon-tags"></span> List Project</a>--}}
+        {{--</li>--}}
 
-                <li>
-                    <a href="{{route('assign-project')}}">
-                        <span class="glyphicon glyphicon-tags"></span> Assign Project</a>
-                </li>
+        {{--<li>--}}
+        {{--<a href="{{route('assign-project')}}">--}}
+        {{--<span class="glyphicon glyphicon-tags"></span> Assign Project</a>--}}
+        {{--</li>--}}
 
-                <li>
-                    <a href="{{route('project-assignment-listing')}}">
-                        <span class="glyphicon glyphicon-tags"></span> Project Assignment Listing</a>
-                </li>
-            </ul>
-        </li>
+        {{--<li>--}}
+        {{--<a href="{{route('project-assignment-listing')}}">--}}
+        {{--<span class="glyphicon glyphicon-tags"></span> Project Assignment Listing</a>--}}
+        {{--</li>--}}
+        {{--</ul>--}}
+        {{--</li>--}}
 
         <li>
 
@@ -112,23 +113,24 @@
             </a>
         </li>
 
-        <li>
-            <a class="accordion-toggle" href="/dashboard">
-                <span class="fa fa-group"></span>
-                <span class="sidebar-title">Teams</span>
-                <span class="caret"></span>
-            </a>
-            <ul class="nav sub-nav">
-                <li>
-                    <a href="{{route('add-team')}}">
-                        <span class="glyphicon glyphicon-book"></span> Add Team </a>
-                </li>
-                <li>
-                    <a href="{{route('team-listing')}}">
-                        <span class="glyphicon glyphicon-modal-window"></span> Team Listings </a>
-                </li>
-            </ul>
-        </li>
+        {{--Teams--}}
+        {{--<li>--}}
+        {{--<a class="accordion-toggle" href="/dashboard">--}}
+        {{--<span class="fa fa-group"></span>--}}
+        {{--<span class="sidebar-title">Teams</span>--}}
+        {{--<span class="caret"></span>--}}
+        {{--</a>--}}
+        {{--<ul class="nav sub-nav">--}}
+        {{--<li>--}}
+        {{--<a href="{{route('add-team')}}">--}}
+        {{--<span class="glyphicon glyphicon-book"></span> Add Team </a>--}}
+        {{--</li>--}}
+        {{--<li>--}}
+        {{--<a href="{{route('team-listing')}}">--}}
+        {{--<span class="glyphicon glyphicon-modal-window"></span> Team Listings </a>--}}
+        {{--</li>--}}
+        {{--</ul>--}}
+        {{--</li>--}}
 
         <li>
             <a class="accordion-toggle" href="/dashboard">
@@ -148,31 +150,32 @@
             </ul>
         </li>
 
-        <li>
-            <a class="accordion-toggle" href="/dashboard">
-                <span class="fa fa fa-laptop"></span>
-                <span class="sidebar-title">Assets</span>
-                <span class="caret"></span>
-            </a>
-            <ul class="nav sub-nav">
-                <li>
-                    <a href="{{route('add-asset')}}">
-                        <span class="glyphicon glyphicon-shopping-cart"></span> Add Asset </a>
-                </li>
-                <li>
-                    <a href="{{route('asset-listing')}}">
-                        <span class="glyphicon glyphicon-calendar"></span> Asset Listings </a>
-                </li>
-                <li>
-                    <a href="{{route('assign-asset')}}">
-                        <span class="fa fa-desktop"></span> Assign Asset </a>
-                </li>
-                <li>
-                    <a href="{{route('assignment-listing')}}">
-                        <span class="fa fa-clipboard"></span> Assignment Listings </a>
-                </li>
-            </ul>
-        </li>
+        {{--Assets--}}
+        {{--<li>--}}
+        {{--<a class="accordion-toggle" href="/dashboard">--}}
+        {{--<span class="fa fa fa-laptop"></span>--}}
+        {{--<span class="sidebar-title">Assets</span>--}}
+        {{--<span class="caret"></span>--}}
+        {{--</a>--}}
+        {{--<ul class="nav sub-nav">--}}
+        {{--<li>--}}
+        {{--<a href="{{route('add-asset')}}">--}}
+        {{--<span class="glyphicon glyphicon-shopping-cart"></span> Add Asset </a>--}}
+        {{--</li>--}}
+        {{--<li>--}}
+        {{--<a href="{{route('asset-listing')}}">--}}
+        {{--<span class="glyphicon glyphicon-calendar"></span> Asset Listings </a>--}}
+        {{--</li>--}}
+        {{--<li>--}}
+        {{--<a href="{{route('assign-asset')}}">--}}
+        {{--<span class="fa fa-desktop"></span> Assign Asset </a>--}}
+        {{--</li>--}}
+        {{--<li>--}}
+        {{--<a href="{{route('assignment-listing')}}">--}}
+        {{--<span class="fa fa-clipboard"></span> Assignment Listings </a>--}}
+        {{--</li>--}}
+        {{--</ul>--}}
+        {{--</li>--}}
 
     @endif
 
@@ -329,23 +332,24 @@
             </ul>
         </li>
 
-        <li>
-            <a class="accordion-toggle" href="#">
-                <span class="fa fa-tree"></span>
-                <span class="sidebar-title">Holiday</span>
-                <span class="caret"></span>
-            </a>
-            <ul class="nav sub-nav">
-                <li>
-                    <a href="/add-holidays">
-                        <span class="glyphicon glyphicon-book"></span> Add Holiday </a>
-                </li>
-                <li>
-                    <a href="/holiday-listing">
-                        <span class="glyphicon glyphicon-modal-window"></span> Holiday Listings </a>
-                </li>
-            </ul>
-        </li>
+        {{--Holiday--}}
+        {{--<li>--}}
+        {{--<a class="accordion-toggle" href="#">--}}
+        {{--<span class="fa fa-tree"></span>--}}
+        {{--<span class="sidebar-title">Holiday</span>--}}
+        {{--<span class="caret"></span>--}}
+        {{--</a>--}}
+        {{--<ul class="nav sub-nav">--}}
+        {{--<li>--}}
+        {{--<a href="/add-holidays">--}}
+        {{--<span class="glyphicon glyphicon-book"></span> Add Holiday </a>--}}
+        {{--</li>--}}
+        {{--<li>--}}
+        {{--<a href="/holiday-listing">--}}
+        {{--<span class="glyphicon glyphicon-modal-window"></span> Holiday Listings </a>--}}
+        {{--</li>--}}
+        {{--</ul>--}}
+        {{--</li>--}}
 
     @endif
 
