@@ -40,8 +40,6 @@ class PayrollController extends Controller
         $dateFrom = '';
         $dateTo = '';
 
-
-
         return view('hrms.payroll.payroll-manager',
             compact('emps', 'column', 'string', 'dateFrom','dateTo' ));
     }
