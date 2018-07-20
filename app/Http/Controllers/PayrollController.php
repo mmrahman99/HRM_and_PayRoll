@@ -34,12 +34,30 @@ class PayrollController extends Controller
 
     public function showPayrollManager()
     {
-        return view('hrms.payroll.payroll-manager');
+        $emps = User::all();
+        $column = '';
+        $string = '';
+        $dateFrom = '';
+        $dateTo = '';
+
+
+
+        return view('hrms.payroll.payroll-manager',
+            compact('emps', 'column', 'string', 'dateFrom','dateTo' ));
     }
 
-    public function showPayslip()
+    public function showPayslip(Request $request)//Request $request)//Request $request)
     {
-        return view('hrms.payroll.payslip');
+        //take request for holding payslip id
+        $id = $request->id;
+        $payslip = payslips::where('employee_id',$id)->first();
+
+        //find payslip with different id
+
+
+        //return payslip object to the payslip view
+
+        return view('hrms.payroll.payslip', compact('payslip'));
     }
 
     public function showAllPayslips()
@@ -124,6 +142,8 @@ class PayrollController extends Controller
             array(17.5, 2810),
             array(25, INF)
         );
+
+        //Other insurance
 
         $totalTax = 0.0;
         $ssnit = $gross * $ssnitRate / 100;

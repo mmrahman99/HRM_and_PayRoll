@@ -350,7 +350,7 @@ Route::group(['middleware' => ['auth']], function ()
     Route::post('payroll-manager', ['as' => 'payroll-manager', 'uses' => 'payrollController@calculate']);
 
 
-    Route::get('payslip', ['as' => 'payslip', 'uses' => 'payrollController@showPayslip']);
+    Route::get('payslip/{id}', ['as' => 'payslip', 'uses' => 'payrollController@showPayslip']);
 
     Route::get('show-payslips', ['as' => 'show-payslips', 'uses' => 'payrollController@showAllPayslips']);
 
