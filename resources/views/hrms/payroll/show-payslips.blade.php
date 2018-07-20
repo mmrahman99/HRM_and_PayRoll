@@ -183,7 +183,7 @@
                                                 <tr class="bg-light">
                                                     <th class="text-center">Id</th>
                                                     <th class="text-center">Employee</th>
-                                                    {{--<th class="text-center">Code</th>--}}
+                                                    <th class="text-center">Code</th>
                                                     {{--<th class="text-center">Leave Type</th>--}}
                                                     <th class="text-center">Date</th>
                                                     {{--<th class="text-center">Date To</th>--}}

@@ -98,13 +98,13 @@ class PayrollController extends Controller
 
     public function calculate()
     {
-        $emps = User::all();
+        $emps = Employee::all();
 
         foreach ($emps as $emp) {//checks if user is
-            if (!$emp->gross_salary) {
+            if (!$emp->salary) {
                 $gross = 10000;
             } else
-                $gross = $emp->employee()->gross_salary;
+                $gross = $emp->salary;
             //            $allowance = $emp->allowance;
 
             $ans = $this->tax($gross);
