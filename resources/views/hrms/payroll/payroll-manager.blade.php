@@ -29,7 +29,7 @@
                             @foreach($emps as $emp)
                                 <tr>
                                     <td class="text-center">{{$emp->employee->name}}</td>
-                                    <td class="text-center">{{$emp->employee->name}}</td>
+                                    <td class="text-center">{{$emp->employee->salary}}</td>
                                     <td class="text-center"></td>
                                     <td class="text-center"></td>
                                     <td class="text-center"></td>
