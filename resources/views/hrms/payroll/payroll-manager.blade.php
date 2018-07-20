@@ -45,7 +45,7 @@
             </div>
 
 
-            <button style="margin-top: 45px; margin-right:25px; padding: 12px; border-radius: 10px; background-color: #00a1d9; color: #0b0b0b;" class="btn btn-primary pull-right" >Run Payroll>></button>
+                <button class="btn btn-primary pull-right">Run Payroll>></button>
 
             </div>
 

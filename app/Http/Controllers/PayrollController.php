@@ -41,7 +41,7 @@ class PayrollController extends Controller
         $dateTo = '';
 
         return view('hrms.payroll.payroll-manager',
-            compact('emps', 'column', 'string', 'dateFrom','dateTo' ));
+            compact('emps', 'column', 'string', 'dateFrom', 'dateTo'));
     }
 
     public function showPayslip(Request $request)//Request $request)//Request $request)

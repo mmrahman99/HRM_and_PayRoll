@@ -8,7 +8,7 @@
         <table class="table table-striped"/>
         <thead>
         <tr >
-            <th colspan="2"><p style="font-size: 30px; text-transform: capitalize;">{{$payslip->name}}</p></th>
+            <th colspan="2"><p style="font-size: 30px; text-transform: capitalize;">{{$payslip->user->name}}</p></th>
             <th class="align-right">GHS</th>
         </tr>
         </thead>
@@ -19,11 +19,11 @@
         </tr>
         <tr>
             <td colspan="2">SSNIT</td>
-            <td class="align-right ng-binding">{{$payslip->ssnit}}</td>
+            <td class="align-right ng-binding"></td>
         </tr>
         <tr>
             <td colspan="2">Insurance</td>
-            <td class="align-right ng-binding">{{$payslip->Insurance}}</td>
+            <td class="align-right ng-binding"></td>
         </tr>
         <tr>
             <td colspan="2">Total Taxes</td>
