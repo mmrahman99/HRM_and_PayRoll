@@ -95,10 +95,6 @@
     @include set-wizard-color($danger-color);
   }
 
-  &[data-color="custom"] {
-    @include set-wizard-color($new-blue);
-  }
-
   .btn {
     text-transform: uppercase;
   }
