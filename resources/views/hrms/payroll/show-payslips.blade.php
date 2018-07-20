@@ -1,4 +1,4 @@
-@extends('hrms.layouts.base')
+ @extends('hrms.layouts.base')
 
 @section('content')
 
@@ -209,41 +209,10 @@
                                                         <td class="text-center">
                                                             <div class="btn-group text-right"
                                                                  id="button-{{$emp->id}}">
-                                                                @if($emp->status==0)
-                                                                    <button type="button"
-                                                                            class="btn btn-info br2 btn-xs fs12 dropdown-toggle"
-                                                                            data-toggle="dropdown"
-                                                                            aria-expanded="false"> Pending
-                                                                        <span class="caret ml5"></span>
-                                                                    </button>
-                                                                    <ul class="dropdown-menu" role="menu">
-                                                                        <li>
-                                                                            <a class="approveClick"
-                                                                               data-id="{{$emp->id}}"
-                                                                               data-name="approve">Approve</a>
-                                                                        </li>
-                                                                        <li>
-                                                                            <a class="disapproveClick"
-                                                                               data-id="{{$emp->id}}"
-                                                                               data-name="disapprove">Disapprove</a>
-                                                                        </li>
-                                                                    </ul>
-                                                                @elseif($emp->status==1)
-                                                                    <button type="button"
-                                                                            class="btn btn-success br2 btn-xs fs12"
-                                                                            aria-expanded="false"><i
-                                                                                class="fa fa-check"> Approved </i>
-
-                                                                    </button>
-                                                                @else
-                                                                    <button type="button"
-                                                                            class="btn btn-danger br2 btn-xs fs12"
-                                                                            aria-expanded="false"><i
-                                                                                class="fa fa-times"> Disapproved </i>
-
-                                                                    </button>
-                                                                @endif
-
+                                                                    <a type="button"
+                                                                            class="btn btn-info br2 btn-xs fs12"
+                                                                            href="{{route('payslip',$emp->id)}}"> View
+                                                                    </a>
                                                             </div>
                                                         </td>
                                                     </tr>
