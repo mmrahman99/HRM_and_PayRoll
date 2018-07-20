@@ -183,7 +183,7 @@
                                                 <tr class="bg-light">
                                                     <th class="text-center">Id</th>
                                                     <th class="text-center">Employee</th>
-                                                    <th class="text-center">Code</th>
+                                                    {{--<th class="text-center">Code</th>--}}
                                                     {{--<th class="text-center">Leave Type</th>--}}
                                                     <th class="text-center">Date</th>
                                                     {{--<th class="text-center">Date To</th>--}}
@@ -193,12 +193,12 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <?php $i = 0;?>
+
                                                 @foreach($emps as $emp)
                                                     <tr>
-                                                        <td class="text-center">{{$i+=1}}</td>
-                                                        <td class="text-center">{{'name')//$emp->user()->id}}</td>
-                                                        <td class="text-center">{{'code')//$emp->user()->email}}</td>
+                                                        <td class="text-center">{{$emp->id}}</td>
+                                                        <td class="text-center">{{$emp->user->name)//$emp->user()->id}}</td>
+                                                        {{--<td class="text-center">{{($emp->user->employee->code)//$emp->user()->email}}</td>--}}
                                                         {{--<td class="text-center">{{(isset($post))? $leave->leave_type : getLeaveType($leave->leave_type_id)}}</td>--}}
                                                         <td class="text-center">{{getFormattedDate($emp->date)}}</td>
                                                         {{--<td class="text-center">{{getFormattedDate($leave->date_to)}}</td>--}}

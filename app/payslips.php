@@ -9,19 +9,9 @@ class payslips extends Model
 {
     public function user()
     {
-        return $this->hasOne(User::class, 'employee_id', 'id');
+        return $this->hasOne(User::class, 'id', 'employee_id');
     }
 
-    public function employee()
-    {
-        return $this->hasManyThrough(
-            Employee::class,
-            User::class,
-            'user_id',
-            'employee_id',
-            'id',
-            'id');
-    }
 
 
 }

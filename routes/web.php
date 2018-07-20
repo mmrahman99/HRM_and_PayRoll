@@ -63,7 +63,7 @@ Route::group(['middleware' => ['auth']], function ()
 
     Route::post('upload-emp', ['as' => 'upload-emp', 'uses' => 'EmpController@uploadFile']);
 
-    Route::get('edit-emp/{id}', ['as' => 'edit-emp', 'uses' => 'EmpController@showEdit']);
+    Route::post('edit-emp', ['as' => 'edit-emp', 'uses' => 'EmpController@showEdit']);
 
     Route::post('edit-emp/{id}', ['as' => 'edit-emp', 'uses' => 'EmpController@doEdit']);
 

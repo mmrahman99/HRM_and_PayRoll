@@ -31,8 +31,9 @@ class EmpController extends Controller
     {
         $roles = Role::get();
         $departments = department::get();
+        $emps = null;
 
-        return view('hrms.employee.add-employee', compact('roles', 'departments'));
+        return view('hrms.employee.add-employee', compact('roles', 'departments', 'emps'));
     }
 
     public function processEmployee(Request $request)
@@ -113,14 +114,19 @@ class EmpController extends Controller
         return view('hrms.employee.show_emp', compact('emps', 'column', 'string'));
     }
 
-    public function showEdit($id)
+    public function showEdit(Request $request)
     {
-        //$emps = Employee::whereid($id)->with('userrole.role')->first();
-        $emps = User::where('id', $id)->with('employee', 'role.role')->first();
 
+        //$emps = Employee::whereid($id)->with('userrole.role')->first();
+        if ($request)
+            $emps = User::where('id', $request->id)->with('employee', 'role.role')->first();
+        else
+            $emps = null;
+
+        $departments = department::get();
         $roles = Role::get();
 
-        return view('hrms.employee.add', compact('emps', 'roles'));
+        return view('hrms.employee.add-employee', compact('emps', 'roles', 'departments'));
     }
 
     public function doEdit(Request $request, $id)
