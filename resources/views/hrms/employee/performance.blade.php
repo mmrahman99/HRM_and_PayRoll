@@ -85,10 +85,10 @@
                                                         <select class="form-control" name=""
                                                                 id="answer">
                                                             <option></option>
-                                                            <option>EXCELLENT 1</option>
-                                                            <option>GOOD 2</option>
-                                                            <option>SATISFACTORY 3</option>
-                                                            <option>UNSATISFACTORY 5</option>
+                                                            <option>EXCELLENT</option>
+                                                            <option>GOOD</option>
+                                                            <option>SATISFACTORY</option>
+                                                            <option>UNSATISFACTORY</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -104,10 +104,10 @@
                                                         <select class="form-control" name=""
                                                                 id="access_type">
                                                             <option></option>
-                                                            <option>EXCELLENT 1</option>
-                                                            <option>GOOD 2</option>
-                                                            <option>SATISFACTORY 3</option>
-                                                            <option>UNSATISFACTORY 5</option>
+                                                            <option>EXCELLENT</option>
+                                                            <option>GOOD</option>
+                                                            <option>SATISFACTORY</option>
+                                                            <option>UNSATISFACTORY</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -123,10 +123,10 @@
                                                         <select class="form-control" name=""
                                                                 id="access_type">
                                                             <option></option>
-                                                            <option>EXCELLENT 1</option>
-                                                            <option>GOOD 2</option>
-                                                            <option>SATISFACTORY 3</option>
-                                                            <option>UNSATISFACTORY 5</option>
+                                                            <option>EXCELLENT</option>
+                                                            <option>GOOD</option>
+                                                            <option>SATISFACTORY</option>
+                                                            <option>UNSATISFACTORY</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -142,10 +142,10 @@
                                                         <select class="form-control" name=""
                                                                 id="access_type">
                                                             <option></option>
-                                                            <option>EXCELLENT 1</option>
-                                                            <option>GOOD 2</option>
-                                                            <option>SATISFACTORY 3</option>
-                                                            <option>UNSATISFACTORY 5</option>
+                                                            <option>EXCELLENT</option>
+                                                            <option>GOOD</option>
+                                                            <option>SATISFACTORY</option>
+                                                            <option>UNSATISFACTORY</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -161,10 +161,10 @@
                                                         <select class="form-control" name=""
                                                                 id="access_type">
                                                             <option></option>
-                                                            <option>EXCELLENT 1</option>
-                                                            <option>GOOD 2</option>
-                                                            <option>SATISFACTORY 3</option>
-                                                            <option>UNSATISFACTORY 5</option>
+                                                            <option>EXCELLENT</option>
+                                                            <option>GOOD</option>
+                                                            <option>SATISFACTORY</option>
+                                                            <option>UNSATISFACTORY</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -180,10 +180,10 @@
                                                         <select class="form-control" name=""
                                                                 id="access_type">
                                                             <option></option>
-                                                            <option>EXCELLENT 1</option>
-                                                            <option>GOOD 2</option>
-                                                            <option>SATISFACTORY 3</option>
-                                                            <option>UNSATISFACTORY 5</option>
+                                                            <option>EXCELLENT</option>
+                                                            <option>GOOD</option>
+                                                            <option>SATISFACTORY</option>
+                                                            <option>UNSATISFACTORY</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -199,10 +199,10 @@
                                                         <select class="form-control" name=""
                                                                 id="access_type">
                                                             <option></option>
-                                                            <option>EXCELLENT 1</option>
-                                                            <option>GOOD 2</option>
-                                                            <option>SATISFACTORY 3</option>
-                                                            <option>UNSATISFACTORY 5</option>
+                                                            <option>EXCELLENT</option>
+                                                            <option>GOOD</option>
+                                                            <option>SATISFACTORY</option>
+                                                            <option>UNSATISFACTORY</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -218,10 +218,10 @@
                                                         <select class="form-control" name=""
                                                                 id="access_type">
                                                             <option></option>
-                                                            <option>EXCELLENT 1</option>
-                                                            <option>GOOD 2</option>
-                                                            <option>SATISFACTORY 3</option>
-                                                            <option>UNSATISFACTORY 5</option>
+                                                            <option>EXCELLENT</option>
+                                                            <option>GOOD</option>
+                                                            <option>SATISFACTORY</option>
+                                                            <option>UNSATISFACTORY</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -237,10 +237,10 @@
                                                         <select class="form-control" name=""
                                                                 id="access_type">
                                                             <option></option>
-                                                            <option>EXCELLENT 1</option>
-                                                            <option>GOOD 2</option>
-                                                            <option>SATISFACTORY 3</option>
-                                                            <option>UNSATISFACTORY 5</option>
+                                                            <option>EXCELLENT</option>
+                                                            <option>GOOD</option>
+                                                            <option>SATISFACTORY</option>
+                                                            <option>UNSATISFACTORY</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -256,10 +256,10 @@
                                                         <select class="form-control" name=""
                                                                 id="access_type">
                                                             <option></option>
-                                                            <option>EXCELLENT 1</option>
-                                                            <option>GOOD 2</option>
-                                                            <option>SATISFACTORY 3</option>
-                                                            <option>UNSATISFACTORY 5</option>
+                                                            <option>EXCELLENT</option>
+                                                            <option>GOOD</option>
+                                                            <option>SATISFACTORY</option>
+                                                            <option>UNSATISFACTORY</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -275,10 +275,10 @@
                                                         <select class="form-control" name=""
                                                                 id="access_type">
                                                             <option></option>
-                                                            <option>EXCELLENT 1</option>
-                                                            <option>GOOD 2</option>
-                                                            <option>SATISFACTORY 3</option>
-                                                            <option>UNSATISFACTORY 5</option>
+                                                            <option>EXCELLENT</option>
+                                                            <option>GOOD</option>
+                                                            <option>SATISFACTORY</option>
+                                                            <option>UNSATISFACTORY</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -294,10 +294,10 @@
                                                         <select class="form-control" name=""
                                                                 id="access_type">
                                                             <option></option>
-                                                            <option>EXCELLENT 1</option>
-                                                            <option>GOOD 2</option>
-                                                            <option>SATISFACTORY 3</option>
-                                                            <option>UNSATISFACTORY 5</option>
+                                                            <option>EXCELLENT</option>
+                                                            <option>GOOD</option>
+                                                            <option>SATISFACTORY</option>
+                                                            <option>UNSATISFACTORY</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -313,10 +313,10 @@
                                                         <select class="form-control" name=""
                                                                 id="access_type">
                                                             <option></option>
-                                                            <option>EXCELLENT 1</option>
-                                                            <option>GOOD 2</option>
-                                                            <option>SATISFACTORY 3</option>
-                                                            <option>UNSATISFACTORY 5</option>
+                                                            <option>EXCELLENT</option>
+                                                            <option>GOOD</option>
+                                                            <option>SATISFACTORY</option>
+                                                            <option>UNSATISFACTORY</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -332,10 +332,10 @@
                                                         <select class="form-control" name=""
                                                                 id="access_type">
                                                             <option></option>
-                                                            <option>EXCELLENT 1</option>
-                                                            <option>GOOD 2</option>
-                                                            <option>SATISFACTORY 3</option>
-                                                            <option>UNSATISFACTORY 5</option>
+                                                            <option>EXCELLENT</option>
+                                                            <option>GOOD</option>
+                                                            <option>SATISFACTORY</option>
+                                                            <option>UNSATISFACTORY</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -351,10 +351,10 @@
                                                         <select class="form-control" name=""
                                                                 id="access_type">
                                                             <option></option>
-                                                            <option>EXCELLENT 1</option>
-                                                            <option>GOOD 2</option>
-                                                            <option>SATISFACTORY 3</option>
-                                                            <option>UNSATISFACTORY 5</option>
+                                                            <option>EXCELLENT</option>
+                                                            <option>GOOD</option>
+                                                            <option>SATISFACTORY</option>
+                                                            <option>UNSATISFACTORY</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -370,10 +370,10 @@
                                                         <select class="form-control" name=""
                                                                 id="access_type">
                                                             <option></option>
-                                                            <option>EXCELLENT 1</option>
-                                                            <option>GOOD 2</option>
-                                                            <option>SATISFACTORY 3</option>
-                                                            <option>UNSATISFACTORY 5</option>
+                                                            <option>EXCELLENT</option>
+                                                            <option>GOOD</option>
+                                                            <option>SATISFACTORY</option>
+                                                            <option>UNSATISFACTORY</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -389,10 +389,10 @@
                                                         <select class="form-control" name=""
                                                                 id="access_type">
                                                             <option></option>
-                                                            <option>EXCELLENT 1</option>
-                                                            <option>GOOD 2</option>
-                                                            <option>SATISFACTORY 3</option>
-                                                            <option>UNSATISFACTORY 5</option>
+                                                            <option>EXCELLENT</option>
+                                                            <option>GOOD</option>
+                                                            <option>SATISFACTORY</option>
+                                                            <option>UNSATISFACTORY</option>
                                                         </select>
                                                     </div>
                                                 </div>

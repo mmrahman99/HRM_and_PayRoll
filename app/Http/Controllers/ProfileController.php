@@ -59,12 +59,13 @@ class ProfileController extends Controller
             $new->code = $user->code;
             $new->user_id = $user->user_id;
             $new->date = $date;
+            $new->in_time = Carbon::now();
             $new->save();
 
-            dd($msg1);
+//            dd($msg1);
         } elseif (Carbon::parse($check->date) == today()) {
 //            echo 'alert(already signed in)';
-            dd($msg);
+//            dd($msg);
 
             return view('hrms.profile');
 
@@ -80,6 +81,7 @@ class ProfileController extends Controller
             $new->code = $user->code;
             $new->user_id = $user->user_id;
             $new->date = $date;
+            $new->in_time = Carbon::now();
             $new->save();
 
             dd($msg1);
@@ -102,38 +104,45 @@ class ProfileController extends Controller
     public function signOut()
     {
         $id = Auth::id();
-
-        $msg = "already signed in";
-
-        $msg1 = "signed out";
-
-        $msg2 = "already signed out";
-
+//
+//        $msg = "already signed in";
+//
+//        $msg1 = "signed out";
+//
+//        $msg2 = "already signed out";
         $date = today();
+        $check = AttendanceManager::where('user_id', $id)->orderBy('id', 'DESC')->first();
 
-
-        $check = AttendanceManager::where('user_id', $id)->first();
+//        $time = Carbon::parse($check->date);
+//        dd($time);
 
         if (Carbon::parse($check->date) == today()) {
 
-            $sign_out = AttendanceManager::where('user_id', $id)
-                ->where('date', $date)->first();
+//            dd($msg);
+            $sign_out = AttendanceManager::where('user_id', $id)->orderBy('id', 'DESC')->where('date', $date)->first();
+
+            $time = Carbon::now();
+            $hrs = Carbon::parse('5:30:00')->toTimeString();
+
 
             $in = Carbon::parse($check->in_time);
-            $out = Carbon::parse($check->out_time);
-            $mins = $out->diff($in)->format('%h:%i:%s');
+            $out = Carbon::parse($time);
+            $wrk = $out->diff($in)->format('%h:%i:%s');
+//            $out = $out->add($wrk)->format('%h:%i:%s');;
 
+
+//            dd($out);
+
+            //
+
+            $sign_out->hours_worked = $wrk;
             $sign_out->out_time = Carbon::now();
-            $sign_out->hours_worked = $mins;
             $sign_out->save();
 
-            dd($mins);
+            dd($out);
 
-            $sign_out->save();
 
-            $hours = $check->in_time - $check->out_time;
 
-            dd($msg1);
         } else {
             dd($msg2);
         }

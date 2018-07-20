@@ -18,8 +18,8 @@ class CreateAttendanceManagerTable extends Migration
             $table->string('name');
             $table->string('code');
             $table->dateTime('date');
-            $table->timestamp('in_time');
-            $table->timestamp('out_time');
+            $table->dateTime('in_time');
+            $table->dateTime('out_time');
             $table->string('hours_worked');
             $table->tinyInteger('status');
             $table->integer('user_id')->unsigned();

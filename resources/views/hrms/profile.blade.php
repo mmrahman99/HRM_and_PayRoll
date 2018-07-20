@@ -150,7 +150,7 @@
                                id="time">{{\Carbon\Carbon::now()->format('l, jS \\of F, Y')}}</p>
                             <h3 style="color: ghostwhite" id="clock"></h3>
                             <br/>
-                            <input class="btn btn-primary" value="Sign IN" onclick="signin()" style="color:ghostwhite">
+                            <input class="btn btn-primary" value="Sign IN" onclick="signIn()" style="color:ghostwhite">
                             <input class="btn btn-primary" value="Sign Out" onclick="signOut()"
                                    style="color:ghostwhite">
 
@@ -277,7 +277,7 @@
     setInterval(startTime, 500);
 
 
-    function signin() {
+    function signIn() {
         alert("you've signed in!");
         $("#output").val("Signed In");
         {{--alert({{\Carbon\Carbon::now()->format('l, jS \\of F, Y')}});--}}

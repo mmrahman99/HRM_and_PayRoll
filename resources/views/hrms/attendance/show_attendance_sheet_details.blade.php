@@ -115,7 +115,7 @@
                                                 <td class="text-center">{{getFormattedDate($attendance->date)}}</td>
                                                 <td class="text-center">{{$attendance->in_time}}</td>
                                                 <td class="text-center">{{$attendance->out_time}}</td>
-                                                <td class="text-center">{{round($attendance->hours_worked,2)}}</td>
+                                                <td class="text-center">{{($attendance->hours_worked)}}</td>
                                                 <td class="text-center">{{convertAttendanceFrom($attendance->status)}}</td>
                                                 <td class="text-center">{{$attendance->leave_status}}</td>
                                                 {{--<td class="text-center">--}}
