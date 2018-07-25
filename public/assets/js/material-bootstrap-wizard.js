@@ -44,8 +44,10 @@ $(document).ready(function () {
             },
             salary: {
                 required: true,
+            },
+            department: {
+                required: true,
             }
-
         },
 
         errorPlacement: function (error, element) {

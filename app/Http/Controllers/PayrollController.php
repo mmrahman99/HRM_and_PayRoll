@@ -48,7 +48,7 @@ class PayrollController extends Controller
     {
         //take request for holding payslip id
         $id = $request->id;
-        $payslip = payslips::where('employee_id',$id)->first();
+        $payslip = payslips::where('employee_id', $id)->first();
 
         //find payslip with different id
 
@@ -182,6 +182,79 @@ class PayrollController extends Controller
 
         return array('net_income' => $net, 'total_tax' => $tax, 'insurance' => $ins);
 
+    }
+
+    public function tax_variable(float $gross,
+                                 float $allowance,
+                                 $pre_tax_rate,
+                                 $tax_rate)
+    {
+        $totalTax = 0.0;
+        $taxAmounts = array();
+
+        $pre_tax = $gross * $pre_tax_rate / 100;
+
+        $taxableRemaining = $gross - $pre_tax + $allowance;
+
+        for ($i = 0; $i < count($tax_rate); $i++) {
+
+            if ($taxableRemaining > 0) {
+
+                $tranche = ($taxableRemaining > $tax_rate[$i][1]) ? $tax_rate[$i][1] : $taxableRemaining;
+                $tier_tax = $tax_rate[$i][0] * $tranche / 100.0;
+                $totalTax += $tier_tax;
+                array_push($taxAmounts, $tier_tax);
+                $taxableRemaining -= $tranche;
+            }
+
+        }
+
+        $netIncome = $gross + $allowance - $totalTax - $pre_tax;
+
+
+        return array(
+            'net_income' => $netIncome,
+            'tax_amounts' => $taxAmounts,
+            'total_tax' => $totalTax,
+            'pre_tax' => $pre_tax);
+
+    }
+
+    /**
+     * Calculate the amount both the employee and employer are meant to pay on any
+     * give employee insurable amount.
+     * @param $insurable : The amount of money that insurance can be calculated on.
+     * @param $insurance_plans : The given insurance plans divided into employee payable and
+     * employer payable rates.
+     * @return array: An array of returnable values
+     */
+    public function insurance_variable($insurable,
+                                       $insurance_plans)
+    {
+
+        $employee_total = 0.0;
+        $company_total = 0.0;
+        $insuranceAmounts = array();
+
+        //TODO: make variable
+        $insurableRemaining = $insurable;
+
+        for ($i = 0; $i < count($insurance_plans); $i++) {
+
+            $company_payable = $insurance_plans[$i][0] * $insurable / 100.0;
+            $employee_payable = $insurance_plans[$i][1] * $insurable / 100.0;
+
+            array_push($insuranceAmounts, array($company_payable, $employee_payable));
+
+            $employee_total += $employee_payable;
+            $company_total += $company_payable;
+
+        }
+
+        return array(
+            'insurance_amounts' => $insuranceAmounts,
+            'employee_total' => $employee_total,
+            'company_total' => $company_total);
     }
 
 }

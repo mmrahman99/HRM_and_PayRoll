@@ -51,8 +51,8 @@ Route::group(['middleware' => ['auth']], function ()
 
     //Routes for add-employees
 
-    Route::get('add-employee', ['as' => 'add-employee', 'uses' => 'EmpController@addEmployee']);
-    Route::get('add-employee-2', ['as' => 'add-employee-2', 'uses' => 'EmpController@addEmployee2']);
+    Route::get('add-employee', ['as' => 'add-employee', 'uses' => 'EmpController@addEmployee2']);
+//    Route::get('add-employee-2', ['as' => 'add-employee-2', 'uses' => 'EmpController@addEmployee2']);
 
     Route::post('add-employee', ['as' => 'add-employee', 'uses' => 'EmpController@processEmployee']);
 

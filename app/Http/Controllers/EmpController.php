@@ -101,7 +101,7 @@ class EmpController extends Controller
 
         //$emp->userrole()->create(['role_id' => $request->role]);
 
-        return json_encode(['title' => 'Success', 'message' => 'Employee added successfully', 'class' => 'modal-header-success']);
+        return view('hrms.employee.show_emp');
 
     }
 
@@ -279,7 +279,7 @@ class EmpController extends Controller
         }
 
         $edit->save();
-        return json_encode(['title' => 'Success', 'message' => 'Employee details successfully updated', 'class' => 'modal-header-success']);
+        return view('hrms.employee.show_emp');
     }
 
     public function doDelete($id)
