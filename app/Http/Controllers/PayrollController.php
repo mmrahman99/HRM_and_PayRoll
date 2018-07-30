@@ -48,7 +48,17 @@ class PayrollController extends Controller
     {
         //take request for holding payslip id
         $id = $request->id;
+        <<<<
+        <<< Updated upstream
         $payslip = payslips::where('employee_id', $id)->first();
+=======
+
+        dd($id);
+
+        $payslip = payslips::where('id',$id)->first();
+
+        dd($id);
+>>>>>>> Stashed changes
 
         //find payslip with different id
 
@@ -109,11 +119,12 @@ class PayrollController extends Controller
 
             $payslip = new payslips;
 
-            $payslip->employee_id = $emp->id;
+            $payslip->employee_id = $emp->user_id;
             $payslip->date = Carbon::now()->format('y-m-d');
             $payslip->gross_salary = $gross;//$emp->employee()->salary;
             $payslip->total_tax_deducted = $ans['total_tax'];
             $payslip->net_salary = $ans['net_income'];
+            $payslip->net_salary = $ans['insurance'];
             $payslip->status = 'paid';
 
             $payslip->save();

@@ -352,7 +352,7 @@ Route::group(['middleware' => ['auth']], function ()
     Route::post('payroll-manager', ['as' => 'payroll-manager', 'uses' => 'payrollController@calculate']);
 
 
-    Route::get('payslip/{id}', ['as' => 'payslip', 'uses' => 'payrollController@showPayslip']);
+    Route::get('payslip/{user_id}', ['as' => 'payslip', 'uses' => 'payrollController@showPayslip']);
 
     Route::get('show-payslips', ['as' => 'show-payslips', 'uses' => 'payrollController@showAllPayslips']);
 
@@ -379,5 +379,29 @@ Route::group(['middleware' => ['auth']], function ()
     Route::get('performance', function () {
         return view('hrms.employee.performance');
     })->name('performance');
+
+    Route::get('performance', ['as' => 'performance', 'uses' => 'performanceController@showEmployeeList']);
+
+    Route::get('view_performance/{id}', ['as' => 'view_performance', 'uses' => 'performanceController@evaluateEmployee']);
+
+    Route::get('view_performance', ['as' => 'view_performance', 'uses' => 'performanceController@evaluateEmployee']);
+//
+    Route::post('view_performance', ['as' => 'view_performance', 'uses' => 'performanceController@evaluateSave']);
+
+    Route::get('performance_list', ['as' => 'performance_list', 'uses' => 'performanceController@showPerformanceList']);
+
+    Route::get('employee_performance_form_view/{id}', ['as' => 'employee_performance_form_view', 'uses' => 'performanceController@performanceFormFilled']);
+
+
+//    Route::post('view_performance', ['as' => 'view_performance', 'uses' => 'performanceController@test']);
+
+
+//    Route::get('view_performance', ['as' => 'view_performance', 'uses' => 'performanceController@evaluateSave']);
+
+//
+//    Route::get('performance', ['as' => 'performance', 'uses' => 'performanceController@evaluateEmployee']);
+//
+//    Route::get('performance/{id}', ['as' => 'performance', 'uses' => 'performanceController@evaluateEmployee']);
+
 
 });

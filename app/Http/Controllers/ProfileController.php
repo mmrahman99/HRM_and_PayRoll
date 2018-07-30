@@ -116,7 +116,7 @@ class ProfileController extends Controller
 //        $time = Carbon::parse($check->date);
 //        dd($time);
 
-        if (Carbon::parse($check->date) == today()) {
+        if (Carbon::parse($check->date) == today() and $check->hours_worked == null) {
 
 //            dd($msg);
             $sign_out = AttendanceManager::where('user_id', $id)->orderBy('id', 'DESC')->where('date', $date)->first();
@@ -142,8 +142,16 @@ class ProfileController extends Controller
             dd($out);
 
 
-
-        } else {
+        }
+//        elseif ((Carbon::parse($check->date) == today()) AND Carbon::parse($check->hours_worked) != null){
+////            echo 'alert(already signed in)';
+////            dd($msg);
+//
+//            $sign_out = AttendanceManager::where('user_id', $id)->orderBy('id', 'DESC')->where('date', $date)->first();
+//
+//            return view('hrms.profile');
+//        }
+        else {
             dd($msg2);
         }
 

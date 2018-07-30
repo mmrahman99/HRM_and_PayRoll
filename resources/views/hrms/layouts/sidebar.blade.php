@@ -46,6 +46,11 @@
                     <a href="{{route('performance')}}">
                         <span class="glyphicon glyphicon-tags"></span> Employee Performance </a>
                 </li>
+
+                <li>
+                    <a href="{{route('performance_list')}}">
+                        <span class="glyphicon glyphicon-tags"></span> Employee Performance List </a>
+                </li>
                 {{--<li>--}}
                 {{--<a href="{{route('upload-emp')}}">--}}
                 {{--<span class="glyphicon glyphicon-tags"></span> Upload </a>--}}
