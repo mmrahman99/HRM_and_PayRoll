@@ -8,6 +8,7 @@ use App\Models\Employee;
 use App\Models\EmployeeUpload;
 use App\Models\Role;
 use App\Models\UserRole;
+use App\payslips;
 use App\Promotion;
 use App\User;
 use Carbon\Carbon;
@@ -98,6 +99,49 @@ class EmpController extends Controller
         $userRole->role_id = $request->role;
         $userRole->user_id = $user->id;
         $userRole->save();
+
+        //Generate payslip for that employee by entering his details into the db
+        $payslip = new payslips();
+        $payslip->employee_id   = $emp->id;
+        $payslip->name     = $request->emp_name;
+        $payslip->date   = date_format(date_create($request->doj), 'Y-m-d');
+        $payslip->gross_salary   = $request->salary;
+        $salary = $request->salary;
+
+        $ssnitRate = 5.5;
+
+        $taxRates = array(
+            array(0, 261),
+            array(5, 70),
+            array(10, 100),
+            array(17.5, 2810),
+            array(25, INF)
+        );
+
+        //Other insurance
+
+        $totalTax = 0.0;
+        $ssnit = $salary * $ssnitRate / 100;
+        $taxableRemaining = $salary - $ssnit;
+
+        for ($i = 0; $i < count($taxRates); $i++) {
+
+            if ($taxableRemaining > 0) {
+
+                $tranche = ($taxableRemaining > $taxRates[$i][1]) ? $taxRates[$i][1] : $taxableRemaining;
+                $totalTax += $taxRates[$i][0] * $tranche / 100.0;
+                $taxableRemaining -= $tranche;
+            }
+
+            }
+
+        $netIncome = $salary - $totalTax - $ssnit;
+
+        $payslip->ssnit   = $ssnit;
+        $payslip->total_tax_deducted   = $totalTax;
+        $payslip->net_salary   = $netIncome;
+        $payslip->status   = 'unpaid';
+        $payslip->save();
 
         //$emp->userrole()->create(['role_id' => $request->role]);
 

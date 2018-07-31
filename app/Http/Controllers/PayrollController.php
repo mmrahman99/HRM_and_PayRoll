@@ -40,6 +40,8 @@ class PayrollController extends Controller
         $dateFrom = '';
         $dateTo = '';
 
+//        dd($emps);
+
         return view('hrms.payroll.payroll-manager',
             compact('emps', 'column', 'string', 'dateFrom', 'dateTo'));
     }
@@ -47,7 +49,7 @@ class PayrollController extends Controller
     public function showPayslip(Request $request)//Request $request)//Request $request)
     {
         //take request for holding payslip id
-        $id = $request->id;
+        $id = $request->employee_id;
         $payslip = payslips::where('employee_id',$id)->first();
 
         //find payslip with different id
@@ -103,20 +105,32 @@ class PayrollController extends Controller
                 $gross = 10000;
             } else
                 $gross = $emp->salary;
-            //            $allowance = $emp->allowance;
+            //  $allowance = $emp->allowance;
 
             $ans = $this->tax($gross);
 
-            $payslip = new payslips;
 
-            $payslip->employee_id = $emp->id;
-            $payslip->date = Carbon::now()->format('y-m-d');
-            $payslip->gross_salary = $gross;//$emp->employee()->salary;
-            $payslip->total_tax_deducted = $ans['total_tax'];
-            $payslip->net_salary = $ans['net_income'];
-            $payslip->status = 'paid';
+            $emp_payslip = payslips::where('employee_id', $emp->id)->first();
 
-            $payslip->save();
+
+            if ($emp_payslip!=null) {
+                if($emp_payslip->status != 'paid') {
+
+                    try {
+//                        $payslip = new payslips;
+//                        $payslip->employee_id = $emp->id;
+//                        $payslip->date = Carbon::now()->format('y-m-d');
+//                        $payslip->gross_salary = $gross;//$emp->employee()->salary;
+//                        $payslip->total_tax_deducted = $ans['total_tax'];
+//                        $payslip->net_salary = $ans['net_income'];
+                        $emp_payslip->status = 'paid';
+                        $emp_payslip->saveOrFail();
+                    } catch (\Throwable $e) {
+                        dd($e);
+                    }
+                }
+            }
+
         }
 
         return redirect('show-payslips');

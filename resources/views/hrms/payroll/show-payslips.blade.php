@@ -1,4 +1,4 @@
- @extends('hrms.layouts.base')
+@extends('hrms.layouts.base')
 
 @section('content')
 
@@ -189,7 +189,7 @@
                                                     {{--<th class="text-center">Date To</th>--}}
                                                     <th class="text-center">Gross Salary</th>
                                                     <th class="text-center">Tax Deducted</th>
-                                                    <th class="text-center">Status</th>
+                                                    <th class="text-center">Payslip</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -200,19 +200,22 @@
                                                         <td class="text-center">{{$emp->user->name)//$emp->user()->id}}</td>
                                                         {{--<td class="text-center">{{($emp->user->employee->code)//$emp->user()->email}}</td>--}}
                                                         {{--<td class="text-center">{{(isset($post))? $leave->leave_type : getLeaveType($leave->leave_type_id)}}</td>--}}
-                                                        <td class="text-center">{{getFormattedDate($emp->date)}}</td>
+                                                        <td class="text-center">code</td>
                                                         {{--<td class="text-center">{{getFormattedDate($leave->date_to)}}</td>--}}
-                                                        <td class="text-center">{{$emp->gross_salary}}</td>
+                                                        <td class="text-center">{{getFormattedDate($emp->date)}}</td>
                                                         <td class="text-center"
-                                                            id="remark-{{$emp->id}}">{{$emp->total_tax_deducted}}</td>
+                                                            id="remark-{{$emp->id}}">{{$emp->gross_salary}}</td>
                                                         <input type="hidden" value="{!! csrf_token() !!}" id="token">
+                                                        <td class="text-center">
+                                                            {{$emp->total_tax_deducted}}
+                                                        </td>
                                                         <td class="text-center">
                                                             <div class="btn-group text-right"
                                                                  id="button-{{$emp->id}}">
-                                                                    <a type="button"
-                                                                            class="btn btn-info br2 btn-xs fs12"
-                                                                            href="{{route('payslip',$emp->id)}}"> View
-                                                                    </a>
+                                                                <a type="button"
+                                                                   class="btn btn-info br2 btn-xs fs12"
+                                                                   href="{{route('payslip',$emp->employee_id)}}"> View
+                                                                </a>
                                                             </div>
                                                         </td>
                                                     </tr>

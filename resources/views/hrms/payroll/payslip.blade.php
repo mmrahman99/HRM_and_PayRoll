@@ -19,11 +19,7 @@
         </tr>
         <tr>
             <td colspan="2">SSNIT</td>
-            <td class="align-right ng-binding"></td>
-        </tr>
-        <tr>
-            <td colspan="2">Insurance</td>
-            <td class="align-right ng-binding"></td>
+            <td class="align-right ng-binding">{{$payslip->ssnit}}</td>
         </tr>
         <tr>
             <td colspan="2">Total Taxes</td>
