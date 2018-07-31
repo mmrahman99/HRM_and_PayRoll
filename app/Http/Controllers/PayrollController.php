@@ -40,8 +40,6 @@ class PayrollController extends Controller
         $dateFrom = '';
         $dateTo = '';
 
-//        dd($emps);
-
         return view('hrms.payroll.payroll-manager',
             compact('emps', 'column', 'string', 'dateFrom', 'dateTo'));
     }
@@ -49,8 +47,18 @@ class PayrollController extends Controller
     public function showPayslip(Request $request)//Request $request)//Request $request)
     {
         //take request for holding payslip id
-        $id = $request->employee_id;
-        $payslip = payslips::where('employee_id',$id)->first();
+        $id = $request->id;
+
+//        Updated upstream
+        $payslip = payslips::where('employee_id', $id)->first();
+
+
+        dd($id);
+
+        $payslip = payslips::where('id',$id)->first();
+
+        dd($id);
+//      Stashed changes
 
         //find payslip with different id
 
@@ -105,32 +113,21 @@ class PayrollController extends Controller
                 $gross = 10000;
             } else
                 $gross = $emp->salary;
-            //  $allowance = $emp->allowance;
+            //            $allowance = $emp->allowance;
 
             $ans = $this->tax($gross);
 
+            $payslip = new payslips;
 
-            $emp_payslip = payslips::where('employee_id', $emp->id)->first();
+            $payslip->employee_id = $emp->user_id;
+            $payslip->date = Carbon::now()->format('y-m-d');
+            $payslip->gross_salary = $gross;//$emp->employee()->salary;
+            $payslip->total_tax_deducted = $ans['total_tax'];
+            $payslip->net_salary = $ans['net_income'];
+            $payslip->net_salary = $ans['insurance'];
+            $payslip->status = 'paid';
 
-
-            if ($emp_payslip!=null) {
-                if($emp_payslip->status != 'paid') {
-
-                    try {
-//                        $payslip = new payslips;
-//                        $payslip->employee_id = $emp->id;
-//                        $payslip->date = Carbon::now()->format('y-m-d');
-//                        $payslip->gross_salary = $gross;//$emp->employee()->salary;
-//                        $payslip->total_tax_deducted = $ans['total_tax'];
-//                        $payslip->net_salary = $ans['net_income'];
-                        $emp_payslip->status = 'paid';
-                        $emp_payslip->saveOrFail();
-                    } catch (\Throwable $e) {
-                        dd($e);
-                    }
-                }
-            }
-
+            $payslip->save();
         }
 
         return redirect('show-payslips');
@@ -196,6 +193,79 @@ class PayrollController extends Controller
 
         return array('net_income' => $net, 'total_tax' => $tax, 'insurance' => $ins);
 
+    }
+
+    public function tax_variable(float $gross,
+                                 float $allowance,
+                                 $pre_tax_rate,
+                                 $tax_rate)
+    {
+        $totalTax = 0.0;
+        $taxAmounts = array();
+
+        $pre_tax = $gross * $pre_tax_rate / 100;
+
+        $taxableRemaining = $gross - $pre_tax + $allowance;
+
+        for ($i = 0; $i < count($tax_rate); $i++) {
+
+            if ($taxableRemaining > 0) {
+
+                $tranche = ($taxableRemaining > $tax_rate[$i][1]) ? $tax_rate[$i][1] : $taxableRemaining;
+                $tier_tax = $tax_rate[$i][0] * $tranche / 100.0;
+                $totalTax += $tier_tax;
+                array_push($taxAmounts, $tier_tax);
+                $taxableRemaining -= $tranche;
+            }
+
+        }
+
+        $netIncome = $gross + $allowance - $totalTax - $pre_tax;
+
+
+        return array(
+            'net_income' => $netIncome,
+            'tax_amounts' => $taxAmounts,
+            'total_tax' => $totalTax,
+            'pre_tax' => $pre_tax);
+
+    }
+
+    /**
+     * Calculate the amount both the employee and employer are meant to pay on any
+     * give employee insurable amount.
+     * @param $insurable : The amount of money that insurance can be calculated on.
+     * @param $insurance_plans : The given insurance plans divided into employee payable and
+     * employer payable rates.
+     * @return array: An array of returnable values
+     */
+    public function insurance_variable($insurable,
+                                       $insurance_plans)
+    {
+
+        $employee_total = 0.0;
+        $company_total = 0.0;
+        $insuranceAmounts = array();
+
+        //TODO: make variable
+        $insurableRemaining = $insurable;
+
+        for ($i = 0; $i < count($insurance_plans); $i++) {
+
+            $company_payable = $insurance_plans[$i][0] * $insurable / 100.0;
+            $employee_payable = $insurance_plans[$i][1] * $insurable / 100.0;
+
+            array_push($insuranceAmounts, array($company_payable, $employee_payable));
+
+            $employee_total += $employee_payable;
+            $company_total += $company_payable;
+
+        }
+
+        return array(
+            'insurance_amounts' => $insuranceAmounts,
+            'employee_total' => $employee_total,
+            'company_total' => $company_total);
     }
 
 }

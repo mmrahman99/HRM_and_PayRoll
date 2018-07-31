@@ -46,6 +46,11 @@
                     <a href="{{route('performance')}}">
                         <span class="glyphicon glyphicon-tags"></span> Employee Performance </a>
                 </li>
+
+                <li>
+                    <a href="{{route('performance_list')}}">
+                        <span class="glyphicon glyphicon-tags"></span> Employee Performance List </a>
+                </li>
                 {{--<li>--}}
                 {{--<a href="{{route('upload-emp')}}">--}}
                 {{--<span class="glyphicon glyphicon-tags"></span> Upload </a>--}}
@@ -103,6 +108,44 @@
         {{--</li>--}}
         {{--</ul>--}}
         {{--</li>--}}
+
+        @if(Auth::user()->isHR())
+
+            <li>
+                <a class="accordion-toggle" href="/dashboard">
+                    <span class="fa fa-line-chart"></span>
+                    <span class="sidebar-title">Financial</span>
+                    <span class="caret"></span>
+                </a>
+                <ul class="nav sub-nav">
+                    <li>
+                        <a href="/calculator">
+                            <span class="glyphicon glyphicons-calculator"></span> Calculator </a>
+                    </li>
+                    {{--<li>--}}
+                    {{--<a href="/company-financial">--}}
+                    {{--<span class="glyphicon glyphicons-bank"></span> Company Finances </a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                    {{--<a href="/edit-financial-data">--}}
+                    {{--<span class="glyphicon glyphicons-bank"></span> Edit Financial Data </a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                    {{--<a href="/financial-manager">--}}
+                    {{--<span class="glyphicon glyphicons-bank"></span> Financial Manager </a>--}}
+                    {{--</li>--}}
+                    <li>
+                        <a href="/payroll-manager">
+                            <span class="glyphicon glyphicons-bank"></span> Payroll Manager </a>
+                    </li>
+                    <li>
+                        <a href="/show-payslips">
+                            <span class="glyphicon glyphicons-bank"></span> View Payslips </a>
+                    </li>
+                </ul>
+            </li>
+
+        @endif
 
         <li>
 
@@ -354,12 +397,6 @@
     @endif
 
     {{--<li class="sidebar-label pt30"> Extras</li>--}}
-    <li>
-        <a href="/create-meeting">
-            <span class="fa fa-calendar-o"></span>
-            <span class="sidebar-title"> Meeting  &nbsp Invitation </span>
-        </a>
-    </li>
 
     @if(Auth::user()->isCoordinator() ||  Auth::user()->isHR())
 
@@ -368,78 +405,6 @@
                 <span class="fa fa-calendar-o"></span>
                 <span class="sidebar-title"> Event  &nbsp Invitation </span>
             </a>
-        </li>
-
-    @endif
-
-    @if(Auth::user()->isHR())
-
-        <li>
-            <a class="accordion-toggle" href="/dashboard">
-                <span class="fa fa-line-chart"></span>
-                <span class="sidebar-title">Financial</span>
-                <span class="caret"></span>
-            </a>
-            <ul class="nav sub-nav">
-                <li>
-                    <a href="/calculator">
-                        <span class="glyphicon glyphicons-calculator"></span> Calculator </a>
-                </li>
-                <li>
-                    <a href="/company-financial">
-                        <span class="glyphicon glyphicons-bank"></span> Company Finances </a>
-                </li>
-                <li>
-                    <a href="/edit-financial-data">
-                        <span class="glyphicon glyphicons-bank"></span> Edit Financial Data </a>
-                </li>
-                <li>
-                    <a href="/financial-manager">
-                        <span class="glyphicon glyphicons-bank"></span> Financial Manager </a>
-                </li>
-                <li>
-                    <a href="/payroll-manager">
-                        <span class="glyphicon glyphicons-bank"></span> Payroll Manager </a>
-                </li>
-                <li>
-                    <a href="/show-payslips">
-                        <span class="glyphicon glyphicons-bank"></span> View Payslips </a>
-                </li>
-            </ul>
-        </li>
-
-        <li>
-            <a class="accordion-toggle" href="/dashboard">
-                <span class="fa fa-line-chart"></span>
-                <span class="sidebar-title">Financial</span>
-                <span class="caret"></span>
-            </a>
-            <ul class="nav sub-nav">
-                <li>
-                    <a href="/calculator">
-                        <span class="glyphicon glyphicons-calculator"></span> Calculator </a>
-                </li>
-                <li>
-                    <a href="/company-financial">
-                        <span class="glyphicon glyphicons-bank"></span> Company Finances </a>
-                </li>
-                <li>
-                    <a href="/edit-financial-data">
-                        <span class="glyphicon glyphicons-bank"></span> Edit Financial Data </a>
-                </li>
-                <li>
-                    <a href="/financial-manager">
-                        <span class="glyphicon glyphicons-bank"></span> Financial Manager </a>
-                </li>
-                <li>
-                    <a href="/payroll-manager">
-                        <span class="glyphicon glyphicons-bank"></span> Payroll Manager </a>
-                </li>
-                <li>
-                    <a href="/show-payslips">
-                        <span class="glyphicon glyphicons-bank"></span> View Payslips </a>
-                </li>
-            </ul>
         </li>
 
     @endif

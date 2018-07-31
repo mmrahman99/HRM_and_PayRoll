@@ -1,423 +1,156 @@
 @extends('hrms.layouts.base')
 
 @section('content')
+    <!-- START CONTENT -->
+    <div class="content">
 
-    <div class="container-fluid">
-        <!--   Creative Tim Branding   -->
-
-        <!--  Made With Material Kit  -->
         <header id="topbar" class="alt">
-
-            @if(\Route::getFacadeRoot()->current()->uri() == 'edit-emp/{id}')
-
-                <div class="topbar-left">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-icon">
-                            <a href="/dashboard">
-                                <span class="fa fa-home"></span>
-                            </a>
-                        </li>
-                        {{-- <li class="breadcrumb-active">
-                             <a href="#"> Edit Details</a>
-                         </li>--}}
-                        <li class="breadcrumb-link">
-                            <a href="/dashboard"> Employees </a>
-                        </li>
-                        {{--<li class="breadcrumb-current-item"> Edit details of {{$emps->name}} </li>--}}
-                    </ol>
-                </div>
-
-            @else
-
-                <div class="topbar-left">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-icon">
-                            <a href="/dashboard">
-                                <span class="fa fa-home"></span>
-                            </a>
-                        </li>
-                        <li class="breadcrumb-active">
-                            <a href="/dashboard">Dashboard</a>
-                        </li>
-                        <li class="breadcrumb-link">
-                            <a href="/add-employee"> Employees </a>
-                        </li>
-                        <li class="breadcrumb-current-item"> Employee Performance</li>
-                    </ol>
-                </div>
-
-            @endif
+            <div class="topbar-left">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-icon">
+                        <a href="/dashboard">
+                            <span class="fa fa-home"></span>
+                        </a>
+                    </li>
+                    <li class="breadcrumb-active">
+                        <a href="/dashboard"> Dashboard </a>
+                    </li>
+                    <li class="breadcrumb-link">
+                        <a href=""> Employees </a>
+                    </li>
+                    <li class="breadcrumb-current-item"> Employee Manager</li>
+                </ol>
+            </div>
         </header>
 
-        <div class="container">
-            <div class="row animated fadeIn">
-                <div class="mw1100 center-block">
-                    @if(session('message'))
-                        {{session('message')}}
-                    @endif
-                    @if(Session::has('flash_message'))
-                        <div class="alert alert-success">
-                            {{ session::get('flash_message') }}
-                        </div>
-                    @endif
 
-                    <div class="wizard-container">
-                        <div class="card wizard-card" data-color="purple" id="wizardProfile">
+        <!-- -------------- Content -------------- -->
+        <section id="content" class="table-layout animated fadeIn">
 
+            <!-- -------------- Column Center -------------- -->
+            <div class="chute chute-center">
 
-                            <form method="post">
+                <!-- -------------- Products Status Table -------------- -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="box box-success">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <span class="panel-title hidden-xs">Employee Lists</span><br/>
+                                </div>
+                                <br/>
+                                @if(Session::has('failed'))
+                                    <div class="alert alert-danger">
+                                        {{ Session::get('failed') }}
+                                    </div>
+                                @endif
+                                {{--<div class="panel-menu allcp-form theme-primary mtn">--}}
+                                {{--<div class="row">--}}
+                                {{--{!! Form::open() !!}--}}
+                                {{--<div class="col-md-3">--}}
+                                {{--<input type="text" class="field form-control" placeholder="query string" style="height:40px" value="" name="string">--}}
+                                {{--</div>--}}
+                                {{--<div class="col-md-3">--}}
+                                {{--<label class="field select">--}}
+                                {{--{!! Form::select('column', getEmployeeDropDown(),$column) !!}--}}
+                                {{--<i class="arrow double"></i>--}}
+                                {{--</label>--}}
+                                {{--</div>--}}
+                                {{--<div class="col-md-2">--}}
+                                {{--<input type="submit" value="Search" name="button" class="btn btn-primary">--}}
+                                {{--</div>--}}
 
-                                <div>
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <h4 class="info-text">Employee Evaluation</h4>
+                                {{--<div class="col-md-2">--}}
+                                {{--<input type="submit" value="Export" name="button" class="btn btn-success">--}}
+                                {{--</div>--}}
+                                {{--{!! Form::close() !!}--}}
+                                {{--<div class="col-md-2">--}}
+                                {{--<a href="/employee-manager" >--}}
+                                {{--<input type="submit" value="Reset" class="btn btn-warning"></a>--}}
+                                {{--</div>--}}
+                                {{--</div>--}}
+                                {{--</div>--}}
 
-                                            <div class="col-sm-10 col-sm-offset-1">
-
-                                                <div class="input-group">
-                            <span class="input-group-addon">
-
-                            </span>
-                                                    <div class="form-group label-floating">
-                                                        <label class="control-label"><h3>Works to Full Potential</h3>
-                                                        </label>
-                                                        <br><br>
-                                                        <select class="form-control" name=""
-                                                                id="answer">
-                                                            <option></option>
-                                                            <option>EXCELLENT</option>
-                                                            <option>GOOD</option>
-                                                            <option>SATISFACTORY</option>
-                                                            <option>UNSATISFACTORY</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <div class="input-group">
-                            <span class="input-group-addon">
-
-                            </span>
-                                                    <div class="form-group label-floating">
-                                                        <label class="control-label"><h3>Quality of Work</h3>
-                                                        </label>
-                                                        <br><br>
-                                                        <select class="form-control" name=""
-                                                                id="access_type">
-                                                            <option></option>
-                                                            <option>EXCELLENT</option>
-                                                            <option>GOOD</option>
-                                                            <option>SATISFACTORY</option>
-                                                            <option>UNSATISFACTORY</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <div class="input-group">
-                            <span class="input-group-addon">
-
-                            </span>
-                                                    <div class="form-group label-floating">
-                                                        <label class="control-label"><h3>Work Consistency</h3>
-                                                        </label>
-                                                        <br><br>
-                                                        <select class="form-control" name=""
-                                                                id="access_type">
-                                                            <option></option>
-                                                            <option>EXCELLENT</option>
-                                                            <option>GOOD</option>
-                                                            <option>SATISFACTORY</option>
-                                                            <option>UNSATISFACTORY</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <div class="input-group">
-                            <span class="input-group-addon">
-
-                            </span>
-                                                    <div class="form-group label-floating">
-                                                        <label class="control-label"><h3>Communication</h3>
-                                                        </label>
-                                                        <br><br>
-                                                        <select class="form-control" name=""
-                                                                id="access_type">
-                                                            <option></option>
-                                                            <option>EXCELLENT</option>
-                                                            <option>GOOD</option>
-                                                            <option>SATISFACTORY</option>
-                                                            <option>UNSATISFACTORY</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <div class="input-group">
-                            <span class="input-group-addon">
-
-                            </span>
-                                                    <div class="form-group label-floating">
-                                                        <label class="control-label"><h3>Independent Work</h3>
-                                                        </label>
-                                                        <br><br>
-                                                        <select class="form-control" name=""
-                                                                id="access_type">
-                                                            <option></option>
-                                                            <option>EXCELLENT</option>
-                                                            <option>GOOD</option>
-                                                            <option>SATISFACTORY</option>
-                                                            <option>UNSATISFACTORY</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <div class="input-group">
-                            <span class="input-group-addon">
-
-                            </span>
-                                                    <div class="form-group label-floating">
-                                                        <label class="control-label"><h3>Takes Initiative</h3>
-                                                        </label>
-                                                        <br><br>
-                                                        <select class="form-control" name=""
-                                                                id="access_type">
-                                                            <option></option>
-                                                            <option>EXCELLENT</option>
-                                                            <option>GOOD</option>
-                                                            <option>SATISFACTORY</option>
-                                                            <option>UNSATISFACTORY</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <div class="input-group">
-                            <span class="input-group-addon">
-
-                            </span>
-                                                    <div class="form-group label-floating">
-                                                        <label class="control-label"><h3>Group Work</h3>
-                                                        </label>
-                                                        <br><br>
-                                                        <select class="form-control" name=""
-                                                                id="access_type">
-                                                            <option></option>
-                                                            <option>EXCELLENT</option>
-                                                            <option>GOOD</option>
-                                                            <option>SATISFACTORY</option>
-                                                            <option>UNSATISFACTORY</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <div class="input-group">
-                            <span class="input-group-addon">
-
-                            </span>
-                                                    <div class="form-group label-floating">
-                                                        <label class="control-label"><h3>Productivity</h3>
-                                                        </label>
-                                                        <br><br>
-                                                        <select class="form-control" name=""
-                                                                id="access_type">
-                                                            <option></option>
-                                                            <option>EXCELLENT</option>
-                                                            <option>GOOD</option>
-                                                            <option>SATISFACTORY</option>
-                                                            <option>UNSATISFACTORY</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <div class="input-group">
-                            <span class="input-group-addon">
-
-                            </span>
-                                                    <div class="form-group label-floating">
-                                                        <label class="control-label"><h3>Creativity</h3>
-                                                        </label>
-                                                        <br><br>
-                                                        <select class="form-control" name=""
-                                                                id="access_type">
-                                                            <option></option>
-                                                            <option>EXCELLENT</option>
-                                                            <option>GOOD</option>
-                                                            <option>SATISFACTORY</option>
-                                                            <option>UNSATISFACTORY</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <div class="input-group">
-                            <span class="input-group-addon">
-
-                            </span>
-                                                    <div class="form-group label-floating">
-                                                        <label class="control-label"><h3>Honesty</h3>
-                                                        </label>
-                                                        <br><br>
-                                                        <select class="form-control" name=""
-                                                                id="access_type">
-                                                            <option></option>
-                                                            <option>EXCELLENT</option>
-                                                            <option>GOOD</option>
-                                                            <option>SATISFACTORY</option>
-                                                            <option>UNSATISFACTORY</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <div class="input-group">
-                            <span class="input-group-addon">
-
-                            </span>
-                                                    <div class="form-group label-floating">
-                                                        <label class="control-label"><h3>Integrity</h3>
-                                                        </label>
-                                                        <br><br>
-                                                        <select class="form-control" name=""
-                                                                id="access_type">
-                                                            <option></option>
-                                                            <option>EXCELLENT</option>
-                                                            <option>GOOD</option>
-                                                            <option>SATISFACTORY</option>
-                                                            <option>UNSATISFACTORY</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <div class="input-group">
-                            <span class="input-group-addon">
-
-                            </span>
-                                                    <div class="form-group label-floating">
-                                                        <label class="control-label"><h3>Coworker Relations</h3>
-                                                        </label>
-                                                        <br><br>
-                                                        <select class="form-control" name=""
-                                                                id="access_type">
-                                                            <option></option>
-                                                            <option>EXCELLENT</option>
-                                                            <option>GOOD</option>
-                                                            <option>SATISFACTORY</option>
-                                                            <option>UNSATISFACTORY</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <div class="input-group">
-                            <span class="input-group-addon">
-
-                            </span>
-                                                    <div class="form-group label-floating">
-                                                        <label class="control-label"><h3>Client Relations</h3>
-                                                        </label>
-                                                        <br><br>
-                                                        <select class="form-control" name=""
-                                                                id="access_type">
-                                                            <option></option>
-                                                            <option>EXCELLENT</option>
-                                                            <option>GOOD</option>
-                                                            <option>SATISFACTORY</option>
-                                                            <option>UNSATISFACTORY</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <div class="input-group">
-                            <span class="input-group-addon">
-
-                            </span>
-                                                    <div class="form-group label-floating">
-                                                        <label class="control-label"><h3>Technical Skills</h3>
-                                                        </label>
-                                                        <br><br>
-                                                        <select class="form-control" name=""
-                                                                id="access_type">
-                                                            <option></option>
-                                                            <option>EXCELLENT</option>
-                                                            <option>GOOD</option>
-                                                            <option>SATISFACTORY</option>
-                                                            <option>UNSATISFACTORY</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <div class="input-group">
-                            <span class="input-group-addon">
-
-                            </span>
-                                                    <div class="form-group label-floating">
-                                                        <label class="control-label"><h3>Dependability</h3>
-                                                        </label>
-                                                        <br><br>
-                                                        <select class="form-control" name=""
-                                                                id="access_type">
-                                                            <option></option>
-                                                            <option>EXCELLENT</option>
-                                                            <option>GOOD</option>
-                                                            <option>SATISFACTORY</option>
-                                                            <option>UNSATISFACTORY</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <div class="input-group">
-                            <span class="input-group-addon">
-
-                            </span>
-                                                    <div class="form-group label-floating">
-                                                        <label class="control-label"><h3>Punctuality</h3>
-                                                        </label>
-                                                        <br><br>
-                                                        <select class="form-control" name=""
-                                                                id="access_type">
-                                                            <option></option>
-                                                            <option>EXCELLENT</option>
-                                                            <option>GOOD</option>
-                                                            <option>SATISFACTORY</option>
-                                                            <option>UNSATISFACTORY</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <div class="input-group">
-                            <span class="input-group-addon">
-
-                            </span>
-                                                    <div class="form-group label-floating">
-                                                        <label class="control-label"><h3>Attendance</h3>
-                                                        </label>
-                                                        <br><br>
-                                                        <select class="form-control" name=""
-                                                                id="access_type">
-                                                            <option></option>
-                                                            <option>EXCELLENT</option>
-                                                            <option>GOOD</option>
-                                                            <option>SATISFACTORY</option>
-                                                            <option>UNSATISFACTORY</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <br><br><br>
-
-                                                <div class="pull-right">
-                                                    <input type='button'
-                                                           class='btn btn-next btn-fill btn-success btn-wd'
-                                                           name='next' value='FINISH'/>
-                                                    {{--<input type='submit' class='btn btn-finish btn-fill btn-success btn-wd'--}}
-                                                    {{--name='finish' value='Finish'/>--}}
-                                                </div>
-
-
-                                            </div>
-
+                                <div class="panel-body pn">
+                                    @if(Session::has('flash_message'))
+                                        <div class="alert alert-success">
+                                            {{ Session::get('flash_message') }}
                                         </div>
+                                    @endif
+                                    <div class="table-responsive">
+                                        <table class="table allcp-form theme-warning tc-checkbox-1 fs13">
+                                            <thead>
+                                            <tr class="bg-light">
+                                                <th class="text-center">Id</th>
+                                                <th class="text-center">Code</th>
+                                                <th class="text-center">Name</th>
+                                                <th class="text-center">Status</th>
+                                                <th class="text-center">Role</th>
+                                                <th class="text-center">Joining Date</th>
+                                                <th class="text-center">Address</th>
+                                                <th class="text-center">Mobile Number</th>
+                                                <th class="text-center">Department</th>
+                                                <th class="text-center">Actions</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <?php $i = 0;?>
+                                            @foreach($emps as $emp)
+                                                <tr>
+                                                    <td class="text-center">{{$emp->id}}</td>
+                                                    <td class="text-center">{{$emp->employee['code']}}</td>
+                                                    <td class="text-center">{{$emp->name}}</td>
+                                                    <td class="text-center">{{convertStatusBack($emp->employee['status'])}}</td>
+                                                    <td class="text-center">{{isset($emp->role->role->name)?$emp->role->role->name:''}}</td>
+                                                    <td class="text-center">{{date('Y-m-d', strtotime($emp->employee['date_of_joining']))}}</td>
+                                                    <td class="text-center">{{$emp->employee['current_address']}}</td>
+                                                    <td class="text-center">{{$emp->employee['number']}}</td>
+                                                    <td class="text-center">{{$emp->employee['department']}}</td>
+                                                    <td class="text-center">
+                                                        <div class="btn-group text-right">
+                                                            {{--{!! Form::open(array('action'=> 'performanaceController@evaluateEmployee') ) !!}--}}
+                                                            {{--{!! Form::token() !!}--}}
+                                                            <div class="btn-group text-right"
+                                                                 id="button-{{$emp->id}}">
+                                                                <a type="button"
+                                                                   class="btn btn-info br2 btn-xs fs12"
+                                                                   href="{{url('view_performance', $emp->id)}}">
+                                                                    Evaluate
+                                                                </a>
+                                                            </div>
+                                                            </form>
+
+                                                            {{--<ul class="dropdown-menu" role="menu">--}}
+                                                            {{--<li>--}}
+                                                            {{--<form method="post" action="/edit-emp">--}}
+                                                            {{--<input type="hidden" value="{{csrf_token()}}" name="_token">--}}
+                                                            {{--<input type="hidden" value="{{$emp->id}}" name="id" id="id">--}}
+                                                            {{--<button type="submit" class="button">edit</button>--}}
+                                                            {{--</form>--}}
+                                                            {{--</li>--}}
+                                                            {{--<li>--}}
+                                                            {{--<a href="/delete-emp/{{$emp->id}}">Delete</a>--}}
+                                                            {{--</li>--}}
+                                                            {{--</ul>--}}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            <tr>
+                                                <td colspan="10">
+                                                    {!! $emps->render() !!}
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
-
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+    </div>
 @endsection

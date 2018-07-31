@@ -89,7 +89,8 @@
                                         <th class="text-center">Address</th>
                                         <th class="text-center">Mobile Number</th>
                                         <th class="text-center">Department</th>
-                                        <th class="text-center">Actions</th>
+                                        <th class="text-center">Edit</th>
+                                        <th class="text-center">Delete</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -107,23 +108,24 @@
                                         <td class="text-center">{{$emp->employee['department']}}</td>
                                         <td class="text-center">
                                             <div class="btn-group text-right">
+                                                <form method="post" action="/edit-emp">
+                                                    <input type="hidden" value="{{csrf_token()}}" name="_token">
+                                                    <input type="hidden" value="{{$emp->id}}" name="id" id="id">
+                                                    <button type="submit"
+                                                            class="btn btn-info br2 btn-xs fs12"> Edit
+                                                        <span class="caret ml5"></span>
+                                                    </button>
+                                                </form>
+
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="btn-group text-right">
                                                 <button type="button"
-                                                        class="btn btn-info br2 btn-xs fs12 dropdown-toggle"
-                                                        data-toggle="dropdown" aria-expanded="false"> Action
+                                                        class="btn btn-info br2 btn-xs fs12"
+                                                        href="/delete-emp/{{$emp->id}}"> Delete
                                                     <span class="caret ml5"></span>
                                                 </button>
-                                                <ul class="dropdown-menu" role="menu">
-                                                    <li>
-                                                        <form method="post" action="/edit-emp">
-                                                            <input type="hidden" value="{{csrf_token()}}" name="_token">
-                                                            <input type="hidden" value="{{$emp->id}}" name="id" id="id">
-                                                            <button type="submit" class="button">edit</button>
-                                                        </form>
-                                                    </li>
-                                                    <li>
-                                                        <a href="/delete-emp/{{$emp->id}}">Delete</a>
-                                                    </li>
-                                                </ul>
                                             </div>
                                         </td>
                                     </tr>

@@ -31,20 +31,20 @@
     <link rel="stylesheet" type="text/css" href="/assets/js/plugins/c3charts/c3.min.css">
 
     <!-- -------------- CSS - theme -------------- -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="/assets/skin/default_skin/css/theme.css">
     {{--<link href="assets/css/gsdk-bootstrap-wizard.css" rel="stylesheet" />--}}
-    <link href="assets/css/material-bootstrap-wizard.css" rel="stylesheet"/>
+    <link href="/assets/css/material-bootstrap-wizard.css" rel="stylesheet"/>
 
 
     <!-- -------------- CSS - allcp forms -------------- -->
     <link rel="stylesheet" type="text/css" href="/assets/allcp/forms/css/forms.css">
     <link rel="stylesheet" type="text/css" href="/assets/allcp/forms/css/widget.css">
-    <link rel="stylesheet" type="text/css" href="assets/js/plugins/select2/css/core.css">
+    <link rel="stylesheet" type="text/css" href="/assets/js/plugins/select2/css/core.css">
     <!-- -------------- Favicon -------------- -->
     <link rel="shortcut icon" href="/assets/img/favicon.png">
-    <link rel="icon" type="image/png" href="assets/img/favicon.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
 
 
     <!--  Custom css -->

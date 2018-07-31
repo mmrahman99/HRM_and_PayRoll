@@ -30,9 +30,10 @@
                                 <tr>
                                     <td class="text-center">{{$emp->employee->name}}</td>
                                     <td class="text-center">{{$emp->employee->salary}}</td>
-                                    <td class="text-center">{{$emp->payslips[0]->total_tax_deducted}}</td>
-                                    <td class="text-center">{{$emp->payslips[0]->net_salary}}</td>
-                                    <td class="text-center">{{$emp->payslips[0]->status}}</td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
                                 </tr>
                             @endforeach
                             </tbody>
