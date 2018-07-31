@@ -390,7 +390,7 @@ Route::group(['middleware' => ['auth']], function ()
 
     Route::get('performance_list', ['as' => 'performance_list', 'uses' => 'performanceController@showPerformanceList']);
 
-    Route::get('employee_performance_form_view/{id}', ['as' => 'employee_performance_form_view', 'uses' => 'performanceController@performanceFormFilled']);
+    Route::get('employee_performance_form_view/{user_id}', ['as' => 'employee_performance_form_view', 'uses' => 'performanceController@performanceFormFilled']);
 
 
 //    Route::post('view_performance', ['as' => 'view_performance', 'uses' => 'performanceController@test']);
