@@ -2,6 +2,26 @@
 
 @section('content')
 
+
+    <header id="topbar" class="alt">
+        <div class="topbar-left">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-icon">
+                    <a href="/dashboard">
+                        <span class="fa fa-home"></span>
+                    </a>
+                </li>
+                <li class="breadcrumb-active">
+                    <a href="/dashboard"> Dashboard </a>
+                </li>
+                <li class="breadcrumb-link">
+                    <a href=""> Employees </a>
+                </li>
+                <li class="breadcrumb-current-item"> Employee Manager</li>
+            </ol>
+        </div>
+    </header>
+
     <br><br>
 
     <div style="color:blue">
@@ -9,7 +29,9 @@
         <center>
 
             <h3 id="name" name="name" style="font-family:'Verdana',sans-serif">{{$emps->name}}</h3>
-            <h3 id="id" name="id" stye="font-family:'Verdana',sans-serif">{{$emps->id}}</h3>
+            {{--<h3 id="id" name="id" stye="font-family:'Verdana',sans-serif">{{$emps->email}}</h3>--}}
+            <h3 id="id" name="id" stye="font-family:'Verdana',sans-serif">{{$department->name}}</h3>
+            <h3 id="id" name="id" stye="font-family:'Verdana',sans-serif">{{$role->name}}</h3>
 
         </center>
 
@@ -196,6 +218,38 @@
                                     </div>
                                 </div>
 
+                                <div class="input-group">
+                                                    <span class="input-group-addon">
+
+                                                    </span>
+                                    <div class="form-group label-floating">
+                                        <label class="control-label"><h3>Comments</h3>
+                                        </label>
+                                        <br><br>
+                                        <textarea name="comments" id="comments" cols="100%" rows="10"></textarea>
+                                    </div>
+                                </div>
+
+                                <br><br><br>
+
+                                {{--<div class="pull-right">--}}
+                                {{--<input type='submit'--}}
+                                {{--class='btn btn-next btn-fill btn-success btn-wd'--}}
+                                {{--name='next' value='FINISH'/>--}}
+                                {{--<input type='submit' class='btn btn-finish btn-fill btn-success btn-wd'--}}
+                                {{--name='finish' value='Finish'/>--}}
+                                {{--</div>--}}
+
+                                <div class="push-right" id="button">
+                                    {{--<a type="submit"--}}
+                                    {{--class="btn btn-info br2 btn-xs fs12"--}}
+                                    {{--href="{{ action('performanceController@test') }}"> Submit--}}
+                                    {{--</a>--}}
+
+                                    <input class="btn btn-success text-right float-right" type="submit" value="FINISH">
+
+                                </div>
+
 
                             </div>
                         </div>
@@ -363,37 +417,7 @@
                     </div>
                 </div>
 
-                <div class="input-group">
-                                                    <span class="input-group-addon">
 
-                                                    </span>
-                    <div class="form-group label-floating">
-                        <label class="control-label"><h3>Comments</h3>
-                        </label>
-                        <br><br>
-                        <textarea name="comments" id="comments" cols="100%" rows="10"></textarea>
-                    </div>
-                </div>
-
-                <br><br><br>
-
-                {{--<div class="pull-right">--}}
-                {{--<input type='submit'--}}
-                {{--class='btn btn-next btn-fill btn-success btn-wd'--}}
-                {{--name='next' value='FINISH'/>--}}
-                {{--<input type='submit' class='btn btn-finish btn-fill btn-success btn-wd'--}}
-                {{--name='finish' value='Finish'/>--}}
-                {{--</div>--}}
-
-                <div class="push-right" id="button">
-                    {{--<a type="submit"--}}
-                    {{--class="btn btn-info br2 btn-xs fs12"--}}
-                    {{--href="{{ action('performanceController@test') }}"> Submit--}}
-                    {{--</a>--}}
-
-                    <input class="btn btn-success text-right float-right" type="submit" value="FINISH">
-
-                </div>
 
 
             </div>

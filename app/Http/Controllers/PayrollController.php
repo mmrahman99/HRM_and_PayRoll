@@ -48,17 +48,17 @@ class PayrollController extends Controller
     {
         //take request for holding payslip id
         $id = $request->id;
-        <<<<
-        <<< Updated upstream
+
+//        Updated upstream
         $payslip = payslips::where('employee_id', $id)->first();
-=======
+
 
         dd($id);
 
         $payslip = payslips::where('id',$id)->first();
 
         dd($id);
->>>>>>> Stashed changes
+//      Stashed changes
 
         //find payslip with different id
 
