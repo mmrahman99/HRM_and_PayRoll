@@ -34,17 +34,16 @@
                         <div style="box-shadow: 10px 10px 5px grey ">
 
 
-                            <div style="color:blue">
+                            <div style="color:blue; margin-left:110px">
 
-                                <center>
 
-                                    <h3 id="name" name="name"
-                                        style="font-family:'American Typewriter',sans-serif; color:purple">{{$emps->name}}</h3>
+                                <h3 id="name" name="name"
+                                    style="font-family:'American Typewriter',sans-serif; color:purple">{{$emps->name}}</h3>
                                     {{--<h3 id="id" name="id" stye="font-family:'Verdana',sans-serif">{{$emps->email}}</h3>--}}
                                     <h3 style="font-family:'American Typewriter',sans-serif; color:purple">{{$department->name}}</h3>
                                     <h3 style="font-family:'Verdana',sans-serif; color:purple">{{$role->name}}</h3>
 
-                                </center>
+
 
                             </div>
 
@@ -253,7 +252,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <br><br><br>
+                                                        <br><br>
 
                                                         {{--<div class="pull-right">--}}
                                                         {{--<input type='submit'--}}
@@ -263,7 +262,7 @@
                                                         {{--name='finish' value='Finish'/>--}}
                                                         {{--</div>--}}
 
-                                                        <div class="push-right" id="button">
+                                                        <div id="button" style="margin-left: 220%">
                                                             {{--<a type="submit"--}}
                                                             {{--class="btn btn-info br2 btn-xs fs12"--}}
                                                             {{--href="{{ action('performanceController@test') }}"> Submit--}}
